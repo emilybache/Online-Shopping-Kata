@@ -38,8 +38,10 @@ public class OnlineShopping {
                     }
                 }
             }
-            deliveryInformation.setType("SHIPPING");
-            deliveryInformation.setPickupLocation(null);
+            if (deliveryInformation != null) {
+                deliveryInformation.setType("SHIPPING");
+                deliveryInformation.setPickupLocation(null);
+            }
         } else {
             if (cart != null) {
                 for (Item item : cart.getItems()) {

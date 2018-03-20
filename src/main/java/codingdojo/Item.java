@@ -1,7 +1,7 @@
 package codingdojo;
 
 /**
- * Items are for sale in a Store and can be put in a Cart
+ * Items are for sale in a Store (or the central warehouse) and can be put in a Cart
  */
 public class Item {
 
