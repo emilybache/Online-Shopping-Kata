@@ -5,9 +5,9 @@ package codingdojo;
  */
 public class Item {
 
-    private final String name;
-    private final String type;
-    private final long weight; // in grams
+    protected final String name;
+    protected final String type;
+    protected final long weight; // in grams
 
     public Item(String name, String type, long weight) {
         this.name = name;
@@ -26,4 +26,12 @@ public class Item {
         return weight;
     }
 
+    @Override
+    public String toString() {
+        return "Item{" +
+                "name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", weight=" + weight +
+                '}';
+    }
 }

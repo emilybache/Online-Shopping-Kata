@@ -1,21 +1,25 @@
 package codingdojo;
 
 /**
- * Ticket to In-store event, eg wine tasting or book signing
+ * Ticket to In-store event, eg makeover, eyeshadow masterclass
+ * or beauty product launch evening reception
  */
 public class StoreEvent extends Item {
-    private Store sellingStore;
-    private Store location;
+    protected Store location;
 
     public StoreEvent(String name, Store location) {
         super(name, "EVENT", 0);
         this.location = location;
+        location.addStoreEvent(this);
     }
 
-    public void setBillingData(Store store) {
-        this.sellingStore = store;
+    @Override
+    public String toString() {
+        return "StoreEvent{" +
+                "name='" + name + '\'' +
+                ", location=" + location +
+                '}';
     }
-
 
     public void setLocation(Store locationStore) {
         this.location = locationStore;

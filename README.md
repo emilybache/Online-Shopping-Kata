@@ -1,8 +1,33 @@
 Online Shopping Kata
 ====================
 
-Your client has this online shopping application. This is
-a snippet of the code.
+You work for a company called "Skin Deep" on their
+ online beauty product shopping application. The company
+ has a chain of physical Stores around the country, and
+ also has this online application, so that customers
+ can order products to collect in store, or for home delivery.
+ 
+You are working on a part of the code,
+ that handles updating the online shopping Cart, 
+ when a customer switches the Store they are shopping at. 
+
+You have just joined the team, and your first task is
+ to add a new kind of delivery - by Drone. 
+ 
+There is more information about the business rules for the
+existing features and new feature in the text below.
+
+There is more information about what each piece of the code
+ does, in javadoc comments. Note, all the classes that 
+ implement "ModelObject" are generated from a database
+ schema and you are not allowed to edit them.
+
+
+Business Rules
+--------------
+
+Drone Delivery Rules
+--------------------
 
 There is a new delivery method being trialled at 
 certain stores - delivery by Drone. You are working
@@ -22,5 +47,3 @@ If the new store is null (ie we have selected the central warehouse)
 then Drone delivery is not available. The delivery information 
 type should be changed to "SHIPPING".
 
-Assume all the classes that implement "ModelObject" are
-also stored in a database.

@@ -6,10 +6,9 @@ public class DeliveryInformation implements ModelObject {
     private Store pickupLocation;
     private long weight;
 
-    public DeliveryInformation(String type, String deliveryAddress, Store pickupLocation,
+    public DeliveryInformation(String type, Store pickupLocation,
                                long weight) {
         this.type = type;
-        this.deliveryAddress = deliveryAddress;
         this.pickupLocation = pickupLocation;
         this.weight = weight;
     }
@@ -22,6 +21,10 @@ public class DeliveryInformation implements ModelObject {
         return type;
     }
 
+    public void setDeliveryAddress(String deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
+    }
+
     public String getDeliveryAddress() {
         return deliveryAddress;
     }
@@ -32,5 +35,15 @@ public class DeliveryInformation implements ModelObject {
 
     public void setTotalWeight(long weight) {
         this.weight = weight;
+    }
+
+    @Override
+    public String toString() {
+        return "DeliveryInformation{" +
+                "type='" + type + '\'' +
+                ", deliveryAddress='" + deliveryAddress + '\'' +
+                ", pickupLocation=" + pickupLocation +
+                ", weight=" + weight +
+                '}';
     }
 }
