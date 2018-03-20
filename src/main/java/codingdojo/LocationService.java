@@ -13,4 +13,10 @@ public class LocationService implements ModelObject {
     public String toString() {
         return "LocationService";
     }
+
+    @Override
+    public void saveToDatabase() {
+        // implementation missing
+    }
+
 }

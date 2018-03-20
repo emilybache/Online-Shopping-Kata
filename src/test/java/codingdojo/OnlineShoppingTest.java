@@ -34,32 +34,30 @@ public class OnlineShoppingTest {
                 new StoreEvent("Makeover", newStore)
         );
         cart = session.getCart();
+        cart.addItems(items);
         deliveryInfo = new DeliveryInformation("PICKUP", currentStore, 300);
         session.setDeliveryInfo(deliveryInfo);
     }
 
     @Test
-    public void testSwitchStoreEmptyCart() {
+    public void testSwitchStoreEmptySession() {
         session.clear();
         new OnlineShopping(session).switchStore(null);
     }
 
     @Test
     public void switchToWarehouse() {
-        cart.addItems(items);
         new OnlineShopping(session).switchStore(null);
     }
 
     @Test
     public void noDeliveryInfo() {
-        cart.addItems(items);
         session.setDeliveryInfo(null);
         new OnlineShopping(session).switchStore(newStore);
     }
 
     @Test
     public void switchToNewStorePickupToDelivery() {
-        cart.addItems(items);
         deliveryInfo.setType("PICKUP");
         deliveryInfo.setDeliveryAddress("NEARBY");
         new OnlineShopping(session).switchStore(newStore);
@@ -67,7 +65,6 @@ public class OnlineShoppingTest {
 
     @Test
     public void switchToNewStoreKeepDelivery() {
-        cart.addItems(items);
         deliveryInfo.setType("HOME_DELIVERY");
         deliveryInfo.setDeliveryAddress("NEARBY");
         new OnlineShopping(session).switchStore(newStore);
@@ -75,7 +72,6 @@ public class OnlineShoppingTest {
 
     @Test
     public void switchToNewStoreChangeToPickup() {
-        cart.addItems(items);
         deliveryInfo.setType("HOME_DELIVERY");
         deliveryInfo.setDeliveryAddress("NOT_NEARBY");
         new OnlineShopping(session).switchStore(newStore);

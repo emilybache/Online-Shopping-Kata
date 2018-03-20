@@ -5,6 +5,7 @@ import java.util.Map;
 
 /**
  * Allows the OnlineShopping to access data classes
+ * and store them in the database
  */
 public class WebSession {
 
@@ -61,4 +62,16 @@ public class WebSession {
         session.put("DELIVERY_INFO", deliveryInfo);
     }
 
+    public void saveAll() {
+        for (String key : session.keySet()) {
+            session.get(key).saveToDatabase();
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "WebSession{" +
+                "session=" + session +
+                '}';
+    }
 }

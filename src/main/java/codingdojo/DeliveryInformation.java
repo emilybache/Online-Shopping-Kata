@@ -46,4 +46,10 @@ public class DeliveryInformation implements ModelObject {
                 ", weight=" + weight +
                 '}';
     }
+
+    @Override
+    public void saveToDatabase() {
+        // implementation missing
+    }
+
 }

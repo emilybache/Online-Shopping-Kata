@@ -31,4 +31,10 @@ public class Cart implements ModelObject {
                 "unavailable=" + unavailableItems +
                 '}';
     }
+
+    @Override
+    public void saveToDatabase() {
+        // implementation missing
+    }
+
 }

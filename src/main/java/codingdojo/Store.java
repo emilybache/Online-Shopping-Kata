@@ -50,4 +50,9 @@ public class Store implements ModelObject {
                 '}';
     }
 
+    @Override
+    public void saveToDatabase() {
+        // implementation missing
+    }
+
 }

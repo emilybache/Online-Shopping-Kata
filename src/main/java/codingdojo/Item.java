@@ -3,7 +3,7 @@ package codingdojo;
 /**
  * Items are for sale in a Store (or the central warehouse) and can be put in a Cart
  */
-public class Item {
+public class Item implements ModelObject {
 
     protected final String name;
     protected final String type;
@@ -34,4 +34,10 @@ public class Item {
                 ", weight=" + weight +
                 '}';
     }
+
+    @Override
+    public void saveToDatabase() {
+        // implementation missing
+    }
+
 }

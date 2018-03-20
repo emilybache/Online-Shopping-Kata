@@ -9,7 +9,11 @@ public class StoreEvent extends Item {
 
     public StoreEvent(String name, Store location) {
         super(name, "EVENT", 0);
-        this.location = location;
+        setLocation(location);
+    }
+
+    public void setLocation(Store locationStore) {
+        this.location = locationStore;
         location.addStoreEvent(this);
     }
 
@@ -21,7 +25,5 @@ public class StoreEvent extends Item {
                 '}';
     }
 
-    public void setLocation(Store locationStore) {
-        this.location = locationStore;
-    }
+
 }

@@ -1,7 +1,6 @@
 package codingdojo;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 /**
  * The online shopping company owns a chain of Stores selling
@@ -90,5 +89,6 @@ public class OnlineShopping {
             }
         }
         webSession.put("STORE", storeToSwitchTo);
+        webSession.saveAll();
     }
 }
