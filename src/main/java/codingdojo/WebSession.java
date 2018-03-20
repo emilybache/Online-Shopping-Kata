@@ -64,7 +64,10 @@ public class WebSession {
 
     public void saveAll() {
         for (String key : session.keySet()) {
-            session.get(key).saveToDatabase();
+            ModelObject entity = session.get(key);
+            if (entity != null) {
+                entity.saveToDatabase();
+            }
         }
     }
 
