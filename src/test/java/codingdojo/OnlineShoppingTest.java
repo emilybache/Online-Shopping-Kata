@@ -8,7 +8,7 @@ import java.util.List;
 
 public class OnlineShoppingTest {
 
-    private WebSession session;
+    private Session session;
     private List<Item> items;
     private DeliveryInformation deliveryInfo;
     private Cart cart;
@@ -16,7 +16,7 @@ public class OnlineShoppingTest {
 
     @Before
     public void setUp() {
-        session = new WebSession();
+        session = new Session();
         Store currentStore = new Store("Nordstan", false);
         session.setCurrentStore(currentStore);
         newStore = new Store("Backaplan", false);

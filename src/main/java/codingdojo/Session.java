@@ -7,12 +7,12 @@ import java.util.Map;
  * Allows the OnlineShopping to access data classes
  * and store them in the database
  */
-public class WebSession {
+public class Session {
 
 
     private final Map<String, ModelObject> session;
 
-    public WebSession() {
+    public Session() {
         session = new HashMap<>();
         setCart(new Cart());
         setLocationService(new LocationService());
@@ -73,7 +73,7 @@ public class WebSession {
 
     @Override
     public String toString() {
-        return "WebSession{" +
+        return "Session{" +
                 "session=" + session +
                 '}';
     }

@@ -14,10 +14,10 @@ import java.util.ArrayList;
  */
 public class OnlineShopping {
 
-    private WebSession webSession;
+    private Session session;
 
-    public OnlineShopping(WebSession webSession) {
-        this.webSession = webSession;
+    public OnlineShopping(Session session) {
+        this.session = session;
     }
 
     /**
@@ -27,8 +27,8 @@ public class OnlineShopping {
      *
      */
     public void switchStore(Store storeToSwitchTo) {
-        Cart cart = (Cart) webSession.get("CART");
-        DeliveryInformation deliveryInformation = (DeliveryInformation) webSession.get("DELIVERY_INFO");
+        Cart cart = (Cart) session.get("CART");
+        DeliveryInformation deliveryInformation = (DeliveryInformation) session.get("DELIVERY_INFO");
         if (storeToSwitchTo == null) {
             if (cart != null) {
                 for (Item item : cart.getItems()) {
@@ -46,7 +46,7 @@ public class OnlineShopping {
                 ArrayList<Item> newItems = new ArrayList<>();
                 for (Item item : cart.getItems()) {
                     if ("EVENT".equals(item.getType())) {
-                        Store currentStore = (Store) webSession.get("STORE");
+                        Store currentStore = (Store) session.get("STORE");
                         if (storeToSwitchTo.hasItem(item)) {
                             cart.markAsUnavailable(item);
                             newItems.add(storeToSwitchTo.getItem(item.getName()));
@@ -59,12 +59,12 @@ public class OnlineShopping {
                     }
                 }
 
-                Store currentStore = (Store) webSession.get("STORE");
+                Store currentStore = (Store) session.get("STORE");
                 if (deliveryInformation != null
                         && deliveryInformation.getType() != null
                         && "HOME_DELIVERY".equals(deliveryInformation.getType())
                         && deliveryInformation.getDeliveryAddress() != null) {
-                    if (!((LocationService) webSession.get("LOCATION_SERVICE")).isWithinDeliveryRange(storeToSwitchTo, deliveryInformation.getDeliveryAddress())) {
+                    if (!((LocationService) session.get("LOCATION_SERVICE")).isWithinDeliveryRange(storeToSwitchTo, deliveryInformation.getDeliveryAddress())) {
                         deliveryInformation.setType("PICKUP");
                         deliveryInformation.setPickupLocation(storeToSwitchTo);
                     } else {
@@ -72,7 +72,7 @@ public class OnlineShopping {
                     }
                 } else {
                     if (deliveryInformation != null && deliveryInformation.getDeliveryAddress() != null) {
-                        if (((LocationService) webSession.get("LOCATION_SERVICE")).isWithinDeliveryRange(storeToSwitchTo, deliveryInformation.getDeliveryAddress())) {
+                        if (((LocationService) session.get("LOCATION_SERVICE")).isWithinDeliveryRange(storeToSwitchTo, deliveryInformation.getDeliveryAddress())) {
                             deliveryInformation.setType("HOME_DELIVERY");
                             deliveryInformation.setPickupLocation(currentStore);
                             long weight = 0;
@@ -88,7 +88,7 @@ public class OnlineShopping {
                 }
             }
         }
-        webSession.put("STORE", storeToSwitchTo);
-        webSession.saveAll();
+        session.put("STORE", storeToSwitchTo);
+        session.saveAll();
     }
 }
