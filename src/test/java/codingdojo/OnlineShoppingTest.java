@@ -4,11 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import static org.mockito.Mockito.*;
 
 public class OnlineShoppingTest {
 
@@ -40,7 +36,7 @@ public class OnlineShoppingTest {
     }
 
     @Test
-    public void testSwitchStoreEmptySession() {
+    public void emptySession() {
         session.clear();
         new OnlineShopping(session).switchStore(null);
     }
@@ -57,21 +53,21 @@ public class OnlineShoppingTest {
     }
 
     @Test
-    public void switchToNewStorePickupToDelivery() {
+    public void pickupChangesToDelivery() {
         deliveryInfo.setType("PICKUP");
         deliveryInfo.setDeliveryAddress("NEARBY");
         new OnlineShopping(session).switchStore(newStore);
     }
 
     @Test
-    public void switchToNewStoreKeepDelivery() {
+    public void keepDelivery() {
         deliveryInfo.setType("HOME_DELIVERY");
         deliveryInfo.setDeliveryAddress("NEARBY");
         new OnlineShopping(session).switchStore(newStore);
     }
 
     @Test
-    public void switchToNewStoreChangeToPickup() {
+    public void changeToPickup() {
         deliveryInfo.setType("HOME_DELIVERY");
         deliveryInfo.setDeliveryAddress("NOT_NEARBY");
         new OnlineShopping(session).switchStore(newStore);
