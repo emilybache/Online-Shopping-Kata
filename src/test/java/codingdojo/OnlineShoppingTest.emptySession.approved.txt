@@ -1,0 +1,7 @@
+OnlineShopping{
+session=Session{
+contents=
+STORE=null
+
+}
+}

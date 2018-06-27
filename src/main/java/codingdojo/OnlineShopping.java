@@ -91,4 +91,10 @@ public class OnlineShopping {
         session.put("STORE", storeToSwitchTo);
         session.saveAll();
     }
+
+    @Override
+    public String toString() {
+        return "OnlineShopping{\n"
+                + "session=" + session + "\n}";
+    }
 }

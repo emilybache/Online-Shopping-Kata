@@ -1,5 +1,6 @@
 package codingdojo;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -73,8 +74,17 @@ public class Session {
 
     @Override
     public String toString() {
-        return "Session{" +
-                "session=" + session +
-                '}';
+        StringBuffer sessionContents = new StringBuffer("\n");
+        for (String key: session.keySet()) {
+            sessionContents.append(key);
+            sessionContents.append("=");
+            ModelObject modelObject = session.get(key);
+            sessionContents.append(modelObject);
+            sessionContents.append("\n");
+        }
+
+        return "Session{\n" +
+                "contents=" + sessionContents +
+                "\n}";
     }
 }
