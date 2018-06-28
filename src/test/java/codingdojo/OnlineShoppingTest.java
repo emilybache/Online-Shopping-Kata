@@ -44,45 +44,5 @@ public class OnlineShoppingTest {
         Approvals.verify(shopping);
     }
 
-    @Test
-    public void switchToWarehouse() {
-        OnlineShopping shopping = new OnlineShopping(session);
-        shopping.switchStore(null);
-        Approvals.verify(shopping);
-    }
 
-    @Test
-    public void noDeliveryInfo() {
-        session.setDeliveryInfo(null);
-        OnlineShopping onlineShopping = new OnlineShopping(session);
-        onlineShopping.switchStore(newStore);
-        Approvals.verify(onlineShopping);
-    }
-
-    @Test
-    public void pickupChangesToDelivery() {
-        deliveryInfo.setType("PICKUP");
-        deliveryInfo.setDeliveryAddress("NEARBY");
-        OnlineShopping onlineShopping = new OnlineShopping(session);
-        onlineShopping.switchStore(newStore);
-        Approvals.verify(onlineShopping);
-    }
-
-    @Test
-    public void keepDelivery() {
-        deliveryInfo.setType("HOME_DELIVERY");
-        deliveryInfo.setDeliveryAddress("NEARBY");
-        OnlineShopping onlineShopping = new OnlineShopping(session);
-        onlineShopping.switchStore(newStore);
-        Approvals.verify(onlineShopping);
-    }
-
-    @Test
-    public void changeToPickup() {
-        deliveryInfo.setType("HOME_DELIVERY");
-        deliveryInfo.setDeliveryAddress("NOT_NEARBY");
-        OnlineShopping onlineShopping = new OnlineShopping(session);
-        onlineShopping.switchStore(newStore);
-        Approvals.verify(onlineShopping);
-    }
 }

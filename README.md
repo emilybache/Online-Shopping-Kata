@@ -38,8 +38,8 @@ There are only three types of DeliveryInformation: Pickup, Home Delivery and Shi
 No others are supported (yet).
 A DeliveryInformation must include a delivery address, unless it is of type Pickup, in which 
 case it is optional.
-If a DeliveryInformation has type Pickup then the "Pickup Location" must be a Store, in other cases
-it is null.
+If a DeliveryInformation has type Pickup or Home Delivery then the "Pickup Location" 
+must be a Store.
 
 Drone Delivery Rules
 --------------------

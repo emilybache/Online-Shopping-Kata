@@ -46,13 +46,11 @@ public class OnlineShopping {
                 ArrayList<Item> newItems = new ArrayList<>();
                 for (Item item : cart.getItems()) {
                     if ("EVENT".equals(item.getType())) {
-                        Store currentStore = (Store) session.get("STORE");
                         if (storeToSwitchTo.hasItem(item)) {
                             cart.markAsUnavailable(item);
                             newItems.add(storeToSwitchTo.getItem(item.getName()));
                         } else {
                             cart.markAsUnavailable(item);
-                            ((StoreEvent) item).setLocation(currentStore);
                         }
                     } else if (!storeToSwitchTo.hasItem(item)) {
                         cart.markAsUnavailable(item);
@@ -74,7 +72,7 @@ public class OnlineShopping {
                     if (deliveryInformation != null && deliveryInformation.getDeliveryAddress() != null) {
                         if (((LocationService) session.get("LOCATION_SERVICE")).isWithinDeliveryRange(storeToSwitchTo, deliveryInformation.getDeliveryAddress())) {
                             deliveryInformation.setType("HOME_DELIVERY");
-                            deliveryInformation.setPickupLocation(currentStore);
+                            deliveryInformation.setPickupLocation(storeToSwitchTo);
                             long weight = 0;
                             for (Item item : cart.getItems()) {
                                 weight += item.getWeight();
