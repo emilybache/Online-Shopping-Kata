@@ -26,6 +26,21 @@ There is more information about what each piece of the code
 Business Rules
 --------------
 
+A shopping cart contains a mix of items of different types. When you switch stores, 
+if that item is available at the new store, then you keep it in your shopping cart. 
+If it is not available there, then it is removed. If the item is a "Store Event"
+and the new store has a similar event, you will need to switch to a similar item 
+configured for the new store.
+
+A StoreEvent always has a location.
+
+There are only three types of DeliveryInformation: Pickup, Home Delivery and Shipping. 
+No others are supported (yet).
+A DeliveryInformation must include a delivery address, unless it is of type Pickup, in which 
+case it is optional.
+If a DeliveryInformation has type Pickup then the "Pickup Location" must be a Store, in other cases
+it is null.
+
 Drone Delivery Rules
 --------------------
 
@@ -35,7 +50,7 @@ on adding support for this delivery type to the OnlineShopping
 class, in the 'switchStore' method.
 
 When switching stores, if both current and new store support
-drone delivery, there is no change to the delivery information.
+drone delivery, then the pickup store is switched to the new one.
 If "DRONE" delivery is selected in the delivery information type
 and the new store does not support it, change the delivery 
 type to "PICKUP". If the old store does not support Drone 
@@ -46,4 +61,8 @@ then change the delivery information type to "DRONE".
 If the new store is null (ie we have selected the central warehouse)
 then Drone delivery is not available. The delivery information 
 type should be changed to "SHIPPING".
+
+If Drone delivery is selected then the Pickup Location must be a store, and 
+the delivery address must be specified, and the location services must confirm
+the pickup location is near to the delivery address.
 
