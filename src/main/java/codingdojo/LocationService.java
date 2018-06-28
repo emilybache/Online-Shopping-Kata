@@ -16,7 +16,7 @@ public class LocationService implements ModelObject {
 
     @Override
     public void saveToDatabase() {
-        // implementation missing
+        throw new UnsupportedOperationException("missing from this exercise - shouldn't be called from a unit test");
     }
 
 }
