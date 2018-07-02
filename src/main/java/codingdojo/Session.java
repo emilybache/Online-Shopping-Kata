@@ -15,8 +15,8 @@ public class Session {
 
     public Session() {
         session = new HashMap<>();
-        setCart(new Cart());
-        setLocationService(new LocationService());
+        session.put("CART", new Cart());
+        session.put("LOCATION_SERVICE", new LocationService());
     }
 
     public ModelObject get(String key) {
@@ -26,43 +26,7 @@ public class Session {
     public void put(String key, ModelObject value) {
         this.session.put(key, value);
     }
-
-    public void clear() {
-        this.session.clear();
-    }
-
-    public Cart getCart() {
-        return (Cart) session.get("CART");
-    }
-
-    public void setCart(Cart cart) {
-        session.put("CART", cart);
-    }
-
-    public LocationService getLocationService() {
-        return (LocationService) session.get("LOCATION_SERVICE");
-    }
-
-    public void setLocationService(LocationService locationService) {
-        session.put("LOCATION_SERVICE", locationService);
-    }
-
-    public Store getCurrentStore() {
-        return (Store) session.get("STORE");
-    }
-
-    public void setCurrentStore(Store currentStore) {
-        session.put("STORE", currentStore);
-    }
-
-    public DeliveryInformation getDeliveryInfo() {
-        return (DeliveryInformation) session.get("DELIVERY_INFO");
-    }
-
-    public void setDeliveryInfo(DeliveryInformation deliveryInfo) {
-        session.put("DELIVERY_INFO", deliveryInfo);
-    }
-
+    
     public void saveAll() {
         for (String key : session.keySet()) {
             ModelObject entity = session.get(key);
@@ -83,8 +47,8 @@ public class Session {
             sessionContents.append("\n");
         }
 
-        return "Session{\n" +
-                "contents=" + sessionContents +
-                "\n}";
+        return "Session{" +
+                sessionContents +
+                "}";
     }
 }

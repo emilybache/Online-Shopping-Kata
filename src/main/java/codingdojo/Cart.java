@@ -27,9 +27,18 @@ public class Cart implements ModelObject {
     @Override
     public String toString() {
         return "Cart{" +
-                "items=" + items +
-                "unavailable=" + unavailableItems +
+                "items=" + displayItems(items) +
+                "unavailable=" + displayItems(unavailableItems) +
                 '}';
+    }
+
+    private String displayItems(List<Item> items) {
+        StringBuffer itemDisplay = new StringBuffer("\n");
+        for (Item item : items) {
+            itemDisplay.append(item.name);
+            itemDisplay.append("\n");
+        }
+        return itemDisplay.toString();
     }
 
     @Override

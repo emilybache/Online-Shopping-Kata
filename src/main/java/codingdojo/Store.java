@@ -14,7 +14,7 @@ public class Store implements ModelObject {
         this.name = name;
         this.droneDelivery = droneDelivery;
     }
-    public void addStockedItems(List<Item> items) {
+    public void addStockedItems(Item... items) {
         for (Item item: items) {
             this.itemsInStock.put(item.getName(), item);
         }
@@ -24,7 +24,7 @@ public class Store implements ModelObject {
         this.itemsInStock.put(storeEvent.getName(), storeEvent);
     }
 
-    public void removeStockedItems(List<Item> items) {
+    public void removeStockedItems(Item... items) {
         for (Item item: items) {
             this.itemsInStock.remove(item.getName());
         }
@@ -45,7 +45,7 @@ public class Store implements ModelObject {
     @Override
     public String toString() {
         return "Store{" +
-                "name='" + name + '\'' +
+                "name='" + name + "\', " +
                 "droneDelivery=" + droneDelivery +
                 '}';
     }
