@@ -55,4 +55,7 @@ public class Store implements ModelObject {
         throw new UnsupportedOperationException("missing from this exercise - shouldn't be called from a unit test");
     }
 
+    public void setDroneDelivery(boolean b) {
+        this.droneDelivery = b;
+    }
 }

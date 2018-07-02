@@ -26,7 +26,7 @@ public class Session {
     public void put(String key, ModelObject value) {
         this.session.put(key, value);
     }
-    
+
     public void saveAll() {
         for (String key : session.keySet()) {
             ModelObject entity = session.get(key);

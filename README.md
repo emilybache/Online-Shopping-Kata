@@ -66,3 +66,9 @@ If Drone delivery is selected then the Pickup Location must be a store, and
 the delivery address must be specified, and the location services must confirm
 the pickup location is near to the delivery address.
 
+Test Cases
+----------
+This starting position for the exercise comes with test cases. There are
+several ignored test cases which you should enable when you are ready
+to implement the Drone Delivery feature.
+
