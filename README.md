@@ -9,10 +9,13 @@ You work for a company called "Skin Deep" on their
  
 You are working on a part of the code,
  that handles updating the online shopping Cart, 
- when a customer switches the Store they are shopping at. 
+ when a customer switches the Store they are shopping at.
+ This code is in production and there are no known bugs in it.
 
 You have just joined the team, and your first task is
- to add a new kind of delivery - by Drone. 
+ to add a new kind of delivery - by Drone. There are
+ several ignored test cases which you should enable when you are ready
+ to implement the Drone Delivery feature.
  
 There is more information about the business rules for the
 existing features and new feature in the text below. See also the
@@ -23,9 +26,10 @@ Business Rules
 --------------
 
 A session holds all the Model Object classes which store
-their fields in the database. You should not alter the fields in these classes.
+their fields in the database. If you change the fields in these classes
+then the database schema will need updating, so don't do this unless you have to.
 
-A shopping cart contains a mix of items of different types. When you switch stores, 
+A shopping cart contains a mix of items of different types. When you switch stores,
 if that item is available at the new store, then you keep it in your shopping cart. 
 If it is not available there, then it is added to the 'unavailable' list.
 If the item is a "Store Event" and the new store has a similar event,
@@ -67,10 +71,4 @@ type should be changed to "SHIPPING".
 If Drone delivery is selected then the Pickup Location must be a store, and 
 the delivery address must be specified, and the location services must confirm
 the pickup location is near to the delivery address.
-
-Test Cases
-----------
-This starting position for the exercise comes with test cases. There are
-several ignored test cases which you should enable when you are ready
-to implement the Drone Delivery feature.
 

@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Represents a physical Store where you can go and buy
+ * products and attend events.
+ */
 public class Store implements ModelObject {
 
     private final Map<String, Item> itemsInStock = new HashMap<>();
