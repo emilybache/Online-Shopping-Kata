@@ -122,6 +122,15 @@ public class OnlineShoppingTest {
         shopping.switchStore(backaplan);
         Approvals.verify(shopping);
     }
+    @Ignore("drone delivery not yet implemented")
+    @Test
+    public void keepPickupEvenIfDroneDeliveryAvailable() {
+        setupDeliveryInformation("PICKUP", "NEARBY");
+        shopping.switchStore(backaplan);
+        nordstan.setDroneDelivery(false);
+        backaplan.setDroneDelivery(true);
+        Approvals.verify(shopping);
+    }
 
     private void setupDeliveryInformation(String currentDeliveryType, String deliveryAddress) {
         deliveryInfo = new DeliveryInformation(currentDeliveryType, nordstan, 60);
