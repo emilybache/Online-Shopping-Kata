@@ -97,44 +97,66 @@ public class OnlineShoppingTest {
     @Ignore("drone delivery not yet implemented")
     @Test
     public void keepDrone() {
-        setupDeliveryInformation("DRONE", "NEARBY");
-        nordstan.setDroneDelivery(true);
-        backaplan.setDroneDelivery(true);
+        setupDeliveryInformation("DRONE", "NEARBY", true, true);
         shopping.switchStore(backaplan);
         Approvals.verify(shopping);
     }
     @Ignore("drone delivery not yet implemented")
     @Test
     public void changeFromDroneToPickup() {
-        setupDeliveryInformation("DRONE", "NOT_NEARBY");
-        nordstan.setDroneDelivery(true);
-        backaplan.setDroneDelivery(false);
+        setupDeliveryInformation("DRONE", "NOT_NEARBY", true, false);
+        shopping.switchStore(backaplan);
+        Approvals.verify(shopping);
+    }
+    @Ignore("drone delivery not yet implemented")
+    @Test
+    public void changeFromDroneToHomeDelivery() {
+        setupDeliveryInformation("DRONE", "NEARBY", true, false);
         shopping.switchStore(backaplan);
         Approvals.verify(shopping);
     }
     @Ignore("drone delivery not yet implemented")
     @Test
     public void changeFromHomeDeliveryToDrone() {
-        setupDeliveryInformation("HOME_DELIVERY", "NEARBY");
-        nordstan.setDroneDelivery(false);
-        backaplan.setDroneDelivery(true);
+        setupDeliveryInformation("HOME_DELIVERY", "NEARBY", false, true);
         shopping.switchStore(backaplan);
         Approvals.verify(shopping);
     }
     @Ignore("drone delivery not yet implemented")
     @Test
-    public void keepPickupEvenIfDroneDeliveryAvailable() {
-        setupDeliveryInformation("PICKUP", "NEARBY");
+    public void changeFromPickupToDroneDelivery() {
+        setupDeliveryInformation("PICKUP", "NEARBY", false, true);
         shopping.switchStore(backaplan);
-        nordstan.setDroneDelivery(false);
-        backaplan.setDroneDelivery(true);
+        Approvals.verify(shopping);
+    }
+    @Ignore("drone delivery not yet implemented")
+    @Test
+    public void keepPickupWhenTooFarForDrone() {
+        setupDeliveryInformation("PICKUP", "NOT_NEARBY", false, true);
+        shopping.switchStore(backaplan);
+        Approvals.verify(shopping);
+    }
+    @Ignore("drone delivery not yet implemented")
+    @Test
+    public void changeFromShippingToDroneDelivery() {
+        setupDeliveryInformation("SHIPPING", "NEARBY", false, true);
+        shopping.switchStore(backaplan);
         Approvals.verify(shopping);
     }
 
     private void setupDeliveryInformation(String currentDeliveryType, String deliveryAddress) {
+        setupDeliveryInformation(currentDeliveryType, deliveryAddress, false, false);
+    }
+
+    private void setupDeliveryInformation(String currentDeliveryType, String deliveryAddress,
+                                          boolean currentStoreHasDroneDelivery,
+                                          boolean newStoreHasDroneDelivery) {
         deliveryInfo = new DeliveryInformation(currentDeliveryType, nordstan, 60);
         deliveryInfo.setDeliveryAddress(deliveryAddress);
         session.put("DELIVERY_INFO", deliveryInfo);
+        nordstan.setDroneDelivery(currentStoreHasDroneDelivery);
+        backaplan.setDroneDelivery(newStoreHasDroneDelivery);
+
     }
 
 
