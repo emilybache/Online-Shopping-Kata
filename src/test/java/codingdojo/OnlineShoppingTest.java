@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import java.util.List;
 
+import static junit.framework.Assert.assertEquals;
+
 public class OnlineShoppingTest {
 
     private Session session;
@@ -22,7 +24,7 @@ public class OnlineShoppingTest {
         session = new Session();
         nordstan = new Store("Nordstan", false);
         session.put("STORE", nordstan);
-        backaplan = new Store("Backaplan", false);
+        backaplan = new Store("Backaplan", true);
 
         Item cherryBloom = new Item("Cherry Bloom", "LIPSTICK", 30);
         Item rosePetal = new Item("Rose Petal", "LIPSTICK", 30);
@@ -47,11 +49,13 @@ public class OnlineShoppingTest {
     }
 
     @Test
-    public void constructSession() {
-        deliveryInfo = new DeliveryInformation("PICKUP", nordstan, 60);
-        deliveryInfo.setDeliveryAddress(null);
+    public void switchStoreChangesDeliveryInfoToDrone() {
+        deliveryInfo = new DeliveryInformation("HOME_DELIVERY", nordstan, 60);
+        deliveryInfo.setDeliveryAddress("NEARBY");
         session.put("DELIVERY_INFO", deliveryInfo);
-        // TODO: test something here
+        // TODO: make this test work
+        // shopping.switchStore(backaplan);
+        // assertEquals("DRONE", ((DeliveryInformation)session.get("DELIVERY_INFO")).getType());
     }
 
 

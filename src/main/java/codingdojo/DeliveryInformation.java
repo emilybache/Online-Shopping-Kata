@@ -1,5 +1,9 @@
 package codingdojo;
 
+/**
+ * This class contains the information about how the customer would like to
+ * have the contents of their shopping cart delivered to them.
+ */
 public class DeliveryInformation implements ModelObject {
     private String type;
     private String deliveryAddress;

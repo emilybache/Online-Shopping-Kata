@@ -9,10 +9,13 @@ You work for a company called "Skin Deep" on their
  
 You are working on a part of the code,
  that handles updating the online shopping Cart, 
- when a customer switches the Store they are shopping at. 
+ when a customer switches the Store they are shopping at.
+ This code is in production and there are no known bugs in it.
 
 You have just joined the team, and your first task is
- to add a new kind of delivery - by Drone. 
+ to add a new kind of delivery - by Drone. One of the other
+ developers has started working on a unit test for the new feature,
+ and helpfully left you a "TODO" to finish it off.
  
 There is more information about the business rules for the
 existing features and new feature in the text below. See also the
@@ -23,7 +26,8 @@ Business Rules
 --------------
 
 A session holds all the Model Object classes which store
-their fields in the database. You should not alter the fields in these classes.
+their fields in the database. If you change the fields in these classes
+then the database schema will need updating, so don't do this unless you have to.
 
 A shopping cart contains a mix of items of different types. When you switch stores,
 if that item is available at the new store, then you keep it in your shopping cart. 
