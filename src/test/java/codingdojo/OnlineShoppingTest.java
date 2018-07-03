@@ -54,7 +54,7 @@ public class OnlineShoppingTest {
         Approvals.verify(shopping);
     }
     @Test
-    public void changeToWarehouse() {
+    public void changeToShipping() {
         setupDeliveryInformation("PICKUP", null);
         shopping.switchStore(null);
         Approvals.verify(shopping);
@@ -81,6 +81,18 @@ public class OnlineShoppingTest {
     public void changeFromHomeDeliveryToPickup() {
         setupDeliveryInformation("HOME_DELIVERY", "NOT_NEARBY");
         shopping.switchStore(backaplan);
+        Approvals.verify(shopping);
+    }
+    @Test
+    public void changeFromShippingToHomeDelivery() {
+        setupDeliveryInformation("SHIPPING", "NEARBY");
+        shopping.switchStore(backaplan);
+        Approvals.verify(shopping);
+    }
+    @Test
+    public void keepShipping() {
+        setupDeliveryInformation("SHIPPING", "NEARBY");
+        shopping.switchStore(null);
         Approvals.verify(shopping);
     }
     @Ignore("drone delivery not yet implemented")
