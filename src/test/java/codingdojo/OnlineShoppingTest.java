@@ -12,27 +12,31 @@ public class OnlineShoppingTest {
     private List<Item> items;
     private DeliveryInformation deliveryInfo;
     private Cart cart;
-    private Store newStore;
+    private Store backaplan;
+    private Store nordstan;
+
+    // this is the system under test
+    private OnlineShopping shopping;
 
     @Before
     public void setUp() {
         session = new Session();
-        Store currentStore = new Store("Nordstan", false);
-        session.put("STORE", currentStore);;
-        newStore = new Store("Backaplan", false);
+        nordstan = new Store("Nordstan", false);
+        session.put("STORE", nordstan);
+        backaplan = new Store("Backaplan", false);
 
         Item cherryBloom = new Item("Cherry Bloom", "LIPSTICK", 30);
         Item rosePetal = new Item("Rose Petal", "LIPSTICK", 30);
         Item blusherBrush =  new Item("Blusher Brush", "TOOL", 50);
         Item eyelashCurler = new Item("Eyelash curler", "TOOL", 100);
 
-        currentStore.addStockedItems(cherryBloom, rosePetal, blusherBrush, eyelashCurler);
-        newStore.addStockedItems(cherryBloom, rosePetal, blusherBrush, eyelashCurler);
+        nordstan.addStockedItems(cherryBloom, rosePetal, blusherBrush, eyelashCurler);
+        backaplan.addStockedItems(cherryBloom, rosePetal, eyelashCurler);
 
         // Store events add themselves to the stocked items at their store
-        Item masterclass = new StoreEvent("Eyeshadow Masterclass", currentStore);
-        Item makeoverNordstan = new StoreEvent("Makeover", currentStore);
-        Item makeoverBackaplan = new StoreEvent("Makeover", newStore);
+        Item masterclass = new StoreEvent("Eyeshadow Masterclass", nordstan);
+        Item makeoverNordstan = new StoreEvent("Makeover", nordstan);
+        Item makeoverBackaplan = new StoreEvent("Makeover", backaplan);
 
         cart = (Cart)session.get("CART");
         cart.addItem(cherryBloom);
@@ -40,13 +44,14 @@ public class OnlineShoppingTest {
         cart.addItem(masterclass);
         cart.addItem(makeoverNordstan);
 
-        deliveryInfo = new DeliveryInformation("PICKUP", currentStore, 60);
-        session.put("DELIVERY_INFO", deliveryInfo);
+        shopping = new OnlineShopping(session);
     }
 
     @Test
     public void constructSession() {
-        OnlineShopping shopping = new OnlineShopping(session);
+        deliveryInfo = new DeliveryInformation("PICKUP", nordstan, 60);
+        deliveryInfo.setDeliveryAddress(null);
+        session.put("DELIVERY_INFO", deliveryInfo);
         Approvals.verify(shopping);
     }
 
