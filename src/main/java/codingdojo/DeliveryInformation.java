@@ -43,11 +43,11 @@ public class DeliveryInformation implements ModelObject {
 
     @Override
     public String toString() {
-        return "DeliveryInformation{" +
-                "type='" + type + '\'' +
-                ", deliveryAddress='" + deliveryAddress + '\'' +
-                ", pickupLocation=" + pickupLocation +
-                ", weight=" + weight +
+        return "DeliveryInformation{" + "\n" +
+                "type='" + type + '\'' + "\n" +
+                "deliveryAddress='" + deliveryAddress + '\'' + "\n" +
+                "pickupLocation=" + pickupLocation + "\n" +
+                "weight=" + weight + "\n" +
                 '}';
     }
 

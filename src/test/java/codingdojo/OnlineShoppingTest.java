@@ -10,7 +10,6 @@ import static junit.framework.Assert.assertEquals;
 public class OnlineShoppingTest {
 
     private Session session;
-    private List<Item> items;
     private DeliveryInformation deliveryInfo;
     private Cart cart;
     private Store backaplan;
