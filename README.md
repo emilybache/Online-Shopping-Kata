@@ -15,31 +15,33 @@ You have just joined the team, and your first task is
  to add a new kind of delivery - by Drone. 
  
 There is more information about the business rules for the
-existing features and new feature in the text below.
-
-There is more information about what each piece of the code
- does, in javadoc comments. Note, all the classes that 
- implement "ModelObject" are generated from a database
- schema and you are not allowed to edit them.
+existing features and new feature in the text below. See also the
+javadoc comments in the code.
 
 
 Business Rules
 --------------
 
-A shopping cart contains a mix of items of different types. When you switch stores, 
-if that item is available at the new store, then you keep it in your shopping cart. 
-If it is not available there, then it is removed. If the item is a "Store Event"
-and the new store has a similar event, you will need to switch to a similar item 
-configured for the new store.
+A session holds all the Model Object classes which store
+their fields in the database. You should not alter the fields in these classes.
 
-A StoreEvent always has a location.
+A shopping cart contains a mix of items of different types. When you switch stores,
+if that item is available at the new store, then you keep it in your shopping cart. 
+If it is not available there, then it is added to the 'unavailable' list.
+If the item is a "Store Event" and the new store has a similar event,
+you will need to switch to a similar item configured for the new store.
+A Store Event always has a location.
 
 There are only three types of DeliveryInformation: Pickup, Home Delivery and Shipping. 
 No others are supported (yet).
-A DeliveryInformation must include a delivery address, unless it is of type Pickup, in which 
-case it is optional.
 If a DeliveryInformation has type Pickup or Home Delivery then the "Pickup Location" 
 must be a Store.
+When you switch store, this will impact the delivery options. If you have
+Pickup or Home Delivery then if possible you will keep that option, but
+with the new store. If the new store is too far away from your delivery address
+you have to pickup from the original store.
+Otherwise, if the new store is close enough to your delivery address,
+the delivery information gets switched to home delivery.
 
 Drone Delivery Rules
 --------------------

@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
-import org.approvaltests.Approvals;
 
 public class OnlineShoppingTest {
 
@@ -52,7 +51,7 @@ public class OnlineShoppingTest {
         deliveryInfo = new DeliveryInformation("PICKUP", nordstan, 60);
         deliveryInfo.setDeliveryAddress(null);
         session.put("DELIVERY_INFO", deliveryInfo);
-        Approvals.verify(shopping);
+        // TODO: test something here
     }
 
 
