@@ -36,6 +36,7 @@ public class OnlineShopping {
                         cart.markAsUnavailable(item);
                     }
                 }
+
             }
             if (deliveryInformation != null) {
                 deliveryInformation.setType("SHIPPING");
@@ -44,6 +45,7 @@ public class OnlineShopping {
         } else {
             if (cart != null) {
                 ArrayList<Item> newItems = new ArrayList<>();
+                long weight = 0;
                 for (Item item : cart.getItems()) {
                     if ("EVENT".equals(item.getType())) {
                         if (storeToSwitchTo.hasItem(item)) {
@@ -55,6 +57,10 @@ public class OnlineShopping {
                     } else if (!storeToSwitchTo.hasItem(item)) {
                         cart.markAsUnavailable(item);
                     }
+                    weight += item.getWeight();
+                }
+                for (Item item: cart.getUnavailableItems()) {
+                    weight -= item.getWeight();
                 }
 
                 Store currentStore = (Store) session.get("STORE");
@@ -66,18 +72,16 @@ public class OnlineShopping {
                         deliveryInformation.setType("PICKUP");
                         deliveryInformation.setPickupLocation(currentStore);
                     } else {
+                        deliveryInformation.setTotalWeight(weight);
                         deliveryInformation.setPickupLocation(storeToSwitchTo);
                     }
                 } else {
                     if (deliveryInformation != null && deliveryInformation.getDeliveryAddress() != null) {
                         if (((LocationService) session.get("LOCATION_SERVICE")).isWithinDeliveryRange(storeToSwitchTo, deliveryInformation.getDeliveryAddress())) {
                             deliveryInformation.setType("HOME_DELIVERY");
-                            deliveryInformation.setPickupLocation(storeToSwitchTo);
-                            long weight = 0;
-                            for (Item item : cart.getItems()) {
-                                weight += item.getWeight();
-                            }
                             deliveryInformation.setTotalWeight(weight);
+                            deliveryInformation.setPickupLocation(storeToSwitchTo);
+
                         }
                     }
                 }

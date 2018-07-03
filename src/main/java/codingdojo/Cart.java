@@ -46,4 +46,7 @@ public class Cart implements ModelObject {
         throw new UnsupportedOperationException("missing from this exercise - shouldn't be called from a unit test");
     }
 
+    public Collection<Item> getUnavailableItems() {
+        return unavailableItems;
+    }
 }
