@@ -1,7 +1,12 @@
 OnlineShopping{
 session=Session{
 LOCATION_SERVICE=LocationService
-DELIVERY_INFO=DeliveryInformation{type='SHIPPING', deliveryAddress='null', pickupLocation=null, weight=60}
+DELIVERY_INFO=DeliveryInformation{
+type='SHIPPING'
+deliveryAddress='null'
+pickupLocation=null
+weight=60
+}
 STORE=null
 CART=Cart{items=
 Item{name='Cherry Bloom', type='LIPSTICK', weight=30}

@@ -1,7 +1,12 @@
 OnlineShopping{
 session=Session{
 LOCATION_SERVICE=LocationService
-DELIVERY_INFO=DeliveryInformation{type='PICKUP', deliveryAddress='null', pickupLocation=Store{name='Nordstan', droneDelivery=false}, weight=60}
+DELIVERY_INFO=DeliveryInformation{
+type='PICKUP'
+deliveryAddress='null'
+pickupLocation=Store{name='Nordstan', droneDelivery=false}
+weight=60
+}
 STORE=Store{name='Nordstan', droneDelivery=false}
 CART=Cart{items=
 Item{name='Cherry Bloom', type='LIPSTICK', weight=30}
