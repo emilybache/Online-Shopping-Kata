@@ -61,7 +61,7 @@ If "DRONE" delivery is selected in the delivery information type
 and the new store does not support it, change the delivery 
 type to "PICKUP". If the old store does not support Drone 
 delivery, but the new one does, and the delivery information
-is "HOME_DELIVERY", and the weight of the items is under 5kg,
+is "HOME_DELIVERY", and the weight of the items is under 500g,
 then change the delivery information type to "DRONE".
 
 If the new store is null (ie we have selected the central warehouse)

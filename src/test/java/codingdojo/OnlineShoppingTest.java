@@ -29,9 +29,11 @@ public class OnlineShoppingTest {
         Item rosePetal = new Item("Rose Petal", "LIPSTICK", 30);
         Item blusherBrush =  new Item("Blusher Brush", "TOOL", 50);
         Item eyelashCurler = new Item("Eyelash curler", "TOOL", 100);
+        Item wildRose = new Item("Wild Rose", "PURFUME", 200);
+        Item cocoaButter = new Item("Cocoa Butter", "SKIN_CREAM", 250);
 
-        nordstan.addStockedItems(cherryBloom, rosePetal, blusherBrush, eyelashCurler);
-        backaplan.addStockedItems(cherryBloom, rosePetal, eyelashCurler);
+        nordstan.addStockedItems(cherryBloom, rosePetal, blusherBrush, eyelashCurler, wildRose, cocoaButter);
+        backaplan.addStockedItems(cherryBloom, rosePetal, eyelashCurler, wildRose, cocoaButter);
 
         // Store events add themselves to the stocked items at their store
         Item masterclass = new StoreEvent("Eyeshadow Masterclass", nordstan);
