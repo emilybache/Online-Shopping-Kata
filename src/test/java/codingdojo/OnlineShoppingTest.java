@@ -1,164 +1,94 @@
 package codingdojo;
 
+import org.approvaltests.combinations.CombinationApprovals;
+import org.approvaltests.combinations.SkipCombination;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
 import org.approvaltests.Approvals;
+import org.lambda.functions.Function3;
 
 public class OnlineShoppingTest {
 
-    private Session session;
-    private DeliveryInformation deliveryInfo;
-    private Cart cart;
     private Store backaplan;
     private Store nordstan;
 
-    // this is the system under test
-    private OnlineShopping shopping;
+    private Item cherryBloom;
+    private Item rosePetal;
+    private Item blusherBrush;
+    private Item eyelashCurler;
+    private Item wildRose;
+    private Item cocoaButter;
+    private Item masterclass;
+    private Item makeoverNordstan;
+    private Item makeoverBackaplan;
 
     @Before
-    public void setUp() {
-        session = new NonSavingSession();
+    public void setUpReadOnlyObjects() {
         nordstan = new Store("Nordstan", false);
-        session.put("STORE", nordstan);
-        backaplan = new Store("Backaplan", false);
+        backaplan = new Store("Backaplan", true);
 
-        Item cherryBloom = new Item("Cherry Bloom", "LIPSTICK", 30);
-        Item rosePetal = new Item("Rose Petal", "LIPSTICK", 30);
-        Item blusherBrush =  new Item("Blusher Brush", "TOOL", 50);
-        Item eyelashCurler = new Item("Eyelash curler", "TOOL", 100);
-        Item wildRose = new Item("Wild Rose", "PURFUME", 200);
-        Item cocoaButter = new Item("Cocoa Butter", "SKIN_CREAM", 250);
+        cherryBloom = new Item("Cherry Bloom", "LIPSTICK", 30);
+        rosePetal = new Item("Rose Petal", "LIPSTICK", 30);
+        blusherBrush = new Item("Blusher Brush", "TOOL", 50);
+        eyelashCurler = new Item("Eyelash curler", "TOOL", 100);
+        wildRose = new Item("Wild Rose", "PURFUME", 200);
+        cocoaButter = new Item("Cocoa Butter", "SKIN_CREAM", 250);
 
         nordstan.addStockedItems(cherryBloom, rosePetal, blusherBrush, eyelashCurler, wildRose, cocoaButter);
         backaplan.addStockedItems(cherryBloom, rosePetal, eyelashCurler, wildRose, cocoaButter);
 
         // Store events add themselves to the stocked items at their store
-        Item masterclass = new StoreEvent("Eyeshadow Masterclass", nordstan);
-        Item makeoverNordstan = new StoreEvent("Makeover", nordstan);
-        Item makeoverBackaplan = new StoreEvent("Makeover", backaplan);
+        masterclass = new StoreEvent("Eyeshadow Masterclass", nordstan);
+        makeoverNordstan = new StoreEvent("Makeover", nordstan);
+        makeoverBackaplan = new StoreEvent("Makeover", backaplan);
 
-        cart = (Cart)session.get("CART");
+
+    }
+
+    @Test
+    public void switchStore() throws Exception {
+
+        CombinationApprovals.verifyAllCombinations(this::doSwitchStore,
+                new String[]{"HOME_DELIVERY", "PICKUP", "SHIPPING", null},
+                new String[]{"NEARBY", "NOT_NEARBY", null},
+                new Store[]{backaplan, null},
+                new Boolean[]{true, false},
+                new Boolean[]{true, false});
+
+    }
+
+    public Object doSwitchStore(String deliveryType, String deliveryAddress, Store storeToSwitchTo,
+                                boolean nullCart, boolean nullDeliveryInfo) {
+
+        DeliveryInformation deliveryInfo = new DeliveryInformation(deliveryType, nordstan, 60);
+        deliveryInfo.setDeliveryAddress(deliveryAddress);
+        if (nullDeliveryInfo) {
+            deliveryInfo = null;
+            // if deliveryInfo is null then address is meaningless so skip this combination in the tests
+            if (deliveryAddress != null) {
+                throw new SkipCombination();
+            }
+        }
+
+        Cart cart = new Cart();
         cart.addItem(cherryBloom);
         cart.addItem(blusherBrush);
         cart.addItem(masterclass);
         cart.addItem(makeoverNordstan);
+        if (nullCart) {
+            cart = null;
+        }
 
-        shopping = new OnlineShopping(session);
-    }
-
-    @Test
-    public void constructSession() {
-        setupDeliveryInformation("PICKUP", null);
-        Approvals.verify(shopping);
-    }
-    @Test
-    public void changeToShipping() {
-        setupDeliveryInformation("PICKUP", null);
-        shopping.switchStore(null);
-        Approvals.verify(shopping);
-    }
-    @Test
-    public void keepPickup() {
-        setupDeliveryInformation("PICKUP", "NOT_NEARBY");
-        shopping.switchStore(backaplan);
-        Approvals.verify(shopping);
-    }
-    @Test
-    public void changeFromPickupToHomeDelivery() {
-        setupDeliveryInformation("PICKUP", "NEARBY");
-        shopping.switchStore(backaplan);
-        Approvals.verify(shopping);
-    }
-    @Test
-    public void keepHomeDelivery() {
-        setupDeliveryInformation("HOME_DELIVERY", "NEARBY");
-        shopping.switchStore(backaplan);
-        Approvals.verify(shopping);
-    }
-    @Test
-    public void changeFromHomeDeliveryToPickup() {
-        setupDeliveryInformation("HOME_DELIVERY", "NOT_NEARBY");
-        shopping.switchStore(backaplan);
-        Approvals.verify(shopping);
-    }
-    @Test
-    public void changeFromShippingToHomeDelivery() {
-        setupDeliveryInformation("SHIPPING", "NEARBY");
-        shopping.switchStore(backaplan);
-        Approvals.verify(shopping);
-    }
-    @Test
-    public void keepShipping() {
-        setupDeliveryInformation("SHIPPING", "NEARBY");
-        shopping.switchStore(null);
-        Approvals.verify(shopping);
-    }
-    @Ignore("drone delivery not yet implemented")
-    @Test
-    public void keepDrone() {
-        setupDeliveryInformation("DRONE", "NEARBY", true, true);
-        shopping.switchStore(backaplan);
-        Approvals.verify(shopping);
-    }
-    @Ignore("drone delivery not yet implemented")
-    @Test
-    public void changeFromDroneToPickup() {
-        setupDeliveryInformation("DRONE", "NOT_NEARBY", true, false);
-        shopping.switchStore(backaplan);
-        Approvals.verify(shopping);
-    }
-    @Ignore("drone delivery not yet implemented")
-    @Test
-    public void changeFromDroneToHomeDelivery() {
-        setupDeliveryInformation("DRONE", "NEARBY", true, false);
-        shopping.switchStore(backaplan);
-        Approvals.verify(shopping);
-    }
-    @Ignore("drone delivery not yet implemented")
-    @Test
-    public void changeFromHomeDeliveryToDrone() {
-        setupDeliveryInformation("HOME_DELIVERY", "NEARBY", false, true);
-        shopping.switchStore(backaplan);
-        Approvals.verify(shopping);
-    }
-    @Ignore("drone delivery not yet implemented")
-    @Test
-    public void changeFromPickupToDroneDelivery() {
-        setupDeliveryInformation("PICKUP", "NEARBY", false, true);
-        shopping.switchStore(backaplan);
-        Approvals.verify(shopping);
-    }
-    @Ignore("drone delivery not yet implemented")
-    @Test
-    public void keepPickupWhenTooFarForDrone() {
-        setupDeliveryInformation("PICKUP", "NOT_NEARBY", false, true);
-        shopping.switchStore(backaplan);
-        Approvals.verify(shopping);
-    }
-    @Ignore("drone delivery not yet implemented")
-    @Test
-    public void changeFromShippingToDroneDelivery() {
-        setupDeliveryInformation("SHIPPING", "NEARBY", false, true);
-        shopping.switchStore(backaplan);
-        Approvals.verify(shopping);
-    }
-
-    private void setupDeliveryInformation(String currentDeliveryType, String deliveryAddress) {
-        setupDeliveryInformation(currentDeliveryType, deliveryAddress, false, false);
-    }
-
-    private void setupDeliveryInformation(String currentDeliveryType, String deliveryAddress,
-                                          boolean currentStoreHasDroneDelivery,
-                                          boolean newStoreHasDroneDelivery) {
-        deliveryInfo = new DeliveryInformation(currentDeliveryType, nordstan, 60);
-        deliveryInfo.setDeliveryAddress(deliveryAddress);
+        Session session = new NonSavingSession();
+        session.put("STORE", nordstan);
         session.put("DELIVERY_INFO", deliveryInfo);
-        nordstan.setDroneDelivery(currentStoreHasDroneDelivery);
-        backaplan.setDroneDelivery(newStoreHasDroneDelivery);
+        session.put("CART", cart);
+        OnlineShopping shopping = new OnlineShopping(session);
 
+        shopping.switchStore(storeToSwitchTo);
+        return shopping.toString();
     }
 
 
