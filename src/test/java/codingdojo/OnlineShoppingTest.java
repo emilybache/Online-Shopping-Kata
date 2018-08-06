@@ -1,6 +1,7 @@
 package codingdojo;
 
 import org.approvaltests.combinations.CombinationApprovals;
+import org.approvaltests.combinations.SkipCombination;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -65,6 +66,10 @@ public class OnlineShoppingTest {
         deliveryInfo.setDeliveryAddress(deliveryAddress);
         if (nullDeliveryInfo) {
             deliveryInfo = null;
+            // if deliveryInfo is null then address is meaningless so skip this combination in the tests
+            if (deliveryAddress != null) {
+                throw new SkipCombination();
+            }
         }
 
         Cart cart = new Cart();

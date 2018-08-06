@@ -1,11 +1,3 @@
-[HOME_DELIVERY, NEARBY, Store{name='Backaplan', droneDelivery=true}, true, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=Store{name='Backaplan', droneDelivery=true}
-CART=null
-}
-} 
 [HOME_DELIVERY, NEARBY, Store{name='Backaplan', droneDelivery=true}, true, false] => OnlineShopping{
 session=Session{
 LOCATION_SERVICE=LocationService
@@ -17,24 +9,6 @@ weight=60
 }
 STORE=Store{name='Backaplan', droneDelivery=true}
 CART=null
-}
-} 
-[HOME_DELIVERY, NEARBY, Store{name='Backaplan', droneDelivery=true}, false, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=Store{name='Backaplan', droneDelivery=true}
-CART=Cart{items=
-Item{name='Cherry Bloom', type='LIPSTICK', weight=30}
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Backaplan', droneDelivery=true}}
-unavailable=
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-}
 }
 } 
 [HOME_DELIVERY, NEARBY, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
@@ -60,14 +34,6 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 }
 }
 } 
-[HOME_DELIVERY, NEARBY, null, true, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=null
-CART=null
-}
-} 
 [HOME_DELIVERY, NEARBY, null, true, false] => OnlineShopping{
 session=Session{
 LOCATION_SERVICE=LocationService
@@ -79,22 +45,6 @@ weight=60
 }
 STORE=null
 CART=null
-}
-} 
-[HOME_DELIVERY, NEARBY, null, false, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=null
-CART=Cart{items=
-Item{name='Cherry Bloom', type='LIPSTICK', weight=30}
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-unavailable=
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-}
 }
 } 
 [HOME_DELIVERY, NEARBY, null, false, false] => OnlineShopping{
@@ -118,14 +68,6 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 }
 }
 } 
-[HOME_DELIVERY, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, true, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=Store{name='Backaplan', droneDelivery=true}
-CART=null
-}
-} 
 [HOME_DELIVERY, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, true, false] => OnlineShopping{
 session=Session{
 LOCATION_SERVICE=LocationService
@@ -137,24 +79,6 @@ weight=60
 }
 STORE=Store{name='Backaplan', droneDelivery=true}
 CART=null
-}
-} 
-[HOME_DELIVERY, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, false, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=Store{name='Backaplan', droneDelivery=true}
-CART=Cart{items=
-Item{name='Cherry Bloom', type='LIPSTICK', weight=30}
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Backaplan', droneDelivery=true}}
-unavailable=
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-}
 }
 } 
 [HOME_DELIVERY, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
@@ -180,14 +104,6 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 }
 }
 } 
-[HOME_DELIVERY, NOT_NEARBY, null, true, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=null
-CART=null
-}
-} 
 [HOME_DELIVERY, NOT_NEARBY, null, true, false] => OnlineShopping{
 session=Session{
 LOCATION_SERVICE=LocationService
@@ -199,22 +115,6 @@ weight=60
 }
 STORE=null
 CART=null
-}
-} 
-[HOME_DELIVERY, NOT_NEARBY, null, false, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=null
-CART=Cart{items=
-Item{name='Cherry Bloom', type='LIPSTICK', weight=30}
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-unavailable=
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-}
 }
 } 
 [HOME_DELIVERY, NOT_NEARBY, null, false, false] => OnlineShopping{
@@ -358,14 +258,6 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 }
 }
 } 
-[PICKUP, NEARBY, Store{name='Backaplan', droneDelivery=true}, true, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=Store{name='Backaplan', droneDelivery=true}
-CART=null
-}
-} 
 [PICKUP, NEARBY, Store{name='Backaplan', droneDelivery=true}, true, false] => OnlineShopping{
 session=Session{
 LOCATION_SERVICE=LocationService
@@ -377,24 +269,6 @@ weight=60
 }
 STORE=Store{name='Backaplan', droneDelivery=true}
 CART=null
-}
-} 
-[PICKUP, NEARBY, Store{name='Backaplan', droneDelivery=true}, false, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=Store{name='Backaplan', droneDelivery=true}
-CART=Cart{items=
-Item{name='Cherry Bloom', type='LIPSTICK', weight=30}
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Backaplan', droneDelivery=true}}
-unavailable=
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-}
 }
 } 
 [PICKUP, NEARBY, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
@@ -420,14 +294,6 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 }
 }
 } 
-[PICKUP, NEARBY, null, true, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=null
-CART=null
-}
-} 
 [PICKUP, NEARBY, null, true, false] => OnlineShopping{
 session=Session{
 LOCATION_SERVICE=LocationService
@@ -439,22 +305,6 @@ weight=60
 }
 STORE=null
 CART=null
-}
-} 
-[PICKUP, NEARBY, null, false, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=null
-CART=Cart{items=
-Item{name='Cherry Bloom', type='LIPSTICK', weight=30}
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-unavailable=
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-}
 }
 } 
 [PICKUP, NEARBY, null, false, false] => OnlineShopping{
@@ -478,14 +328,6 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 }
 }
 } 
-[PICKUP, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, true, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=Store{name='Backaplan', droneDelivery=true}
-CART=null
-}
-} 
 [PICKUP, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, true, false] => OnlineShopping{
 session=Session{
 LOCATION_SERVICE=LocationService
@@ -497,24 +339,6 @@ weight=60
 }
 STORE=Store{name='Backaplan', droneDelivery=true}
 CART=null
-}
-} 
-[PICKUP, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, false, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=Store{name='Backaplan', droneDelivery=true}
-CART=Cart{items=
-Item{name='Cherry Bloom', type='LIPSTICK', weight=30}
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Backaplan', droneDelivery=true}}
-unavailable=
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-}
 }
 } 
 [PICKUP, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
@@ -540,14 +364,6 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 }
 }
 } 
-[PICKUP, NOT_NEARBY, null, true, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=null
-CART=null
-}
-} 
 [PICKUP, NOT_NEARBY, null, true, false] => OnlineShopping{
 session=Session{
 LOCATION_SERVICE=LocationService
@@ -559,22 +375,6 @@ weight=60
 }
 STORE=null
 CART=null
-}
-} 
-[PICKUP, NOT_NEARBY, null, false, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=null
-CART=Cart{items=
-Item{name='Cherry Bloom', type='LIPSTICK', weight=30}
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-unavailable=
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-}
 }
 } 
 [PICKUP, NOT_NEARBY, null, false, false] => OnlineShopping{
@@ -718,14 +518,6 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 }
 }
 } 
-[SHIPPING, NEARBY, Store{name='Backaplan', droneDelivery=true}, true, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=Store{name='Backaplan', droneDelivery=true}
-CART=null
-}
-} 
 [SHIPPING, NEARBY, Store{name='Backaplan', droneDelivery=true}, true, false] => OnlineShopping{
 session=Session{
 LOCATION_SERVICE=LocationService
@@ -737,24 +529,6 @@ weight=60
 }
 STORE=Store{name='Backaplan', droneDelivery=true}
 CART=null
-}
-} 
-[SHIPPING, NEARBY, Store{name='Backaplan', droneDelivery=true}, false, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=Store{name='Backaplan', droneDelivery=true}
-CART=Cart{items=
-Item{name='Cherry Bloom', type='LIPSTICK', weight=30}
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Backaplan', droneDelivery=true}}
-unavailable=
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-}
 }
 } 
 [SHIPPING, NEARBY, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
@@ -780,14 +554,6 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 }
 }
 } 
-[SHIPPING, NEARBY, null, true, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=null
-CART=null
-}
-} 
 [SHIPPING, NEARBY, null, true, false] => OnlineShopping{
 session=Session{
 LOCATION_SERVICE=LocationService
@@ -799,22 +565,6 @@ weight=60
 }
 STORE=null
 CART=null
-}
-} 
-[SHIPPING, NEARBY, null, false, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=null
-CART=Cart{items=
-Item{name='Cherry Bloom', type='LIPSTICK', weight=30}
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-unavailable=
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-}
 }
 } 
 [SHIPPING, NEARBY, null, false, false] => OnlineShopping{
@@ -838,14 +588,6 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 }
 }
 } 
-[SHIPPING, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, true, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=Store{name='Backaplan', droneDelivery=true}
-CART=null
-}
-} 
 [SHIPPING, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, true, false] => OnlineShopping{
 session=Session{
 LOCATION_SERVICE=LocationService
@@ -857,24 +599,6 @@ weight=60
 }
 STORE=Store{name='Backaplan', droneDelivery=true}
 CART=null
-}
-} 
-[SHIPPING, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, false, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=Store{name='Backaplan', droneDelivery=true}
-CART=Cart{items=
-Item{name='Cherry Bloom', type='LIPSTICK', weight=30}
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Backaplan', droneDelivery=true}}
-unavailable=
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-}
 }
 } 
 [SHIPPING, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
@@ -900,14 +624,6 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 }
 }
 } 
-[SHIPPING, NOT_NEARBY, null, true, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=null
-CART=null
-}
-} 
 [SHIPPING, NOT_NEARBY, null, true, false] => OnlineShopping{
 session=Session{
 LOCATION_SERVICE=LocationService
@@ -919,22 +635,6 @@ weight=60
 }
 STORE=null
 CART=null
-}
-} 
-[SHIPPING, NOT_NEARBY, null, false, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=null
-CART=Cart{items=
-Item{name='Cherry Bloom', type='LIPSTICK', weight=30}
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-unavailable=
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-}
 }
 } 
 [SHIPPING, NOT_NEARBY, null, false, false] => OnlineShopping{
@@ -1078,14 +778,6 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 }
 }
 } 
-[null, NEARBY, Store{name='Backaplan', droneDelivery=true}, true, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=Store{name='Backaplan', droneDelivery=true}
-CART=null
-}
-} 
 [null, NEARBY, Store{name='Backaplan', droneDelivery=true}, true, false] => OnlineShopping{
 session=Session{
 LOCATION_SERVICE=LocationService
@@ -1097,24 +789,6 @@ weight=60
 }
 STORE=Store{name='Backaplan', droneDelivery=true}
 CART=null
-}
-} 
-[null, NEARBY, Store{name='Backaplan', droneDelivery=true}, false, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=Store{name='Backaplan', droneDelivery=true}
-CART=Cart{items=
-Item{name='Cherry Bloom', type='LIPSTICK', weight=30}
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Backaplan', droneDelivery=true}}
-unavailable=
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-}
 }
 } 
 [null, NEARBY, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
@@ -1140,14 +814,6 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 }
 }
 } 
-[null, NEARBY, null, true, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=null
-CART=null
-}
-} 
 [null, NEARBY, null, true, false] => OnlineShopping{
 session=Session{
 LOCATION_SERVICE=LocationService
@@ -1159,22 +825,6 @@ weight=60
 }
 STORE=null
 CART=null
-}
-} 
-[null, NEARBY, null, false, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=null
-CART=Cart{items=
-Item{name='Cherry Bloom', type='LIPSTICK', weight=30}
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-unavailable=
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-}
 }
 } 
 [null, NEARBY, null, false, false] => OnlineShopping{
@@ -1198,14 +848,6 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 }
 }
 } 
-[null, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, true, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=Store{name='Backaplan', droneDelivery=true}
-CART=null
-}
-} 
 [null, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, true, false] => OnlineShopping{
 session=Session{
 LOCATION_SERVICE=LocationService
@@ -1217,24 +859,6 @@ weight=60
 }
 STORE=Store{name='Backaplan', droneDelivery=true}
 CART=null
-}
-} 
-[null, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, false, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=Store{name='Backaplan', droneDelivery=true}
-CART=Cart{items=
-Item{name='Cherry Bloom', type='LIPSTICK', weight=30}
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Backaplan', droneDelivery=true}}
-unavailable=
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-}
 }
 } 
 [null, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
@@ -1260,14 +884,6 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 }
 }
 } 
-[null, NOT_NEARBY, null, true, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=null
-CART=null
-}
-} 
 [null, NOT_NEARBY, null, true, false] => OnlineShopping{
 session=Session{
 LOCATION_SERVICE=LocationService
@@ -1279,22 +895,6 @@ weight=60
 }
 STORE=null
 CART=null
-}
-} 
-[null, NOT_NEARBY, null, false, true] => OnlineShopping{
-session=Session{
-LOCATION_SERVICE=LocationService
-DELIVERY_INFO=null
-STORE=null
-CART=Cart{items=
-Item{name='Cherry Bloom', type='LIPSTICK', weight=30}
-Item{name='Blusher Brush', type='TOOL', weight=50}
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-unavailable=
-StoreEvent{name='Eyeshadow Masterclass', location=Store{name='Nordstan', droneDelivery=false}}
-StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}}
-}
 }
 } 
 [null, NOT_NEARBY, null, false, false] => OnlineShopping{
