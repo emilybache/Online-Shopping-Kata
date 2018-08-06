@@ -1,62 +1,89 @@
 package codingdojo;
 
+import org.approvaltests.combinations.CombinationApprovals;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
-
-import static junit.framework.Assert.assertEquals;
+import org.approvaltests.Approvals;
+import org.lambda.functions.Function3;
 
 public class OnlineShoppingTest {
 
-    private Session session;
-    private DeliveryInformation deliveryInfo;
-    private Cart cart;
     private Store backaplan;
     private Store nordstan;
 
-    // this is the system under test
-    private OnlineShopping shopping;
+    private Item cherryBloom;
+    private Item rosePetal;
+    private Item blusherBrush;
+    private Item eyelashCurler;
+    private Item wildRose;
+    private Item cocoaButter;
+    private Item masterclass;
+    private Item makeoverNordstan;
+    private Item makeoverBackaplan;
 
     @Before
-    public void setUp() {
-        session = new Session();
+    public void setUpReadOnlyObjects() {
         nordstan = new Store("Nordstan", false);
-        session.put("STORE", nordstan);
         backaplan = new Store("Backaplan", true);
 
-        Item cherryBloom = new Item("Cherry Bloom", "LIPSTICK", 30);
-        Item rosePetal = new Item("Rose Petal", "LIPSTICK", 30);
-        Item blusherBrush =  new Item("Blusher Brush", "TOOL", 50);
-        Item eyelashCurler = new Item("Eyelash curler", "TOOL", 100);
-        Item wildRose = new Item("Wild Rose", "PURFUME", 200);
-        Item cocoaButter = new Item("Cocoa Butter", "SKIN_CREAM", 250);
+        cherryBloom = new Item("Cherry Bloom", "LIPSTICK", 30);
+        rosePetal = new Item("Rose Petal", "LIPSTICK", 30);
+        blusherBrush = new Item("Blusher Brush", "TOOL", 50);
+        eyelashCurler = new Item("Eyelash curler", "TOOL", 100);
+        wildRose = new Item("Wild Rose", "PURFUME", 200);
+        cocoaButter = new Item("Cocoa Butter", "SKIN_CREAM", 250);
 
         nordstan.addStockedItems(cherryBloom, rosePetal, blusherBrush, eyelashCurler, wildRose, cocoaButter);
         backaplan.addStockedItems(cherryBloom, rosePetal, eyelashCurler, wildRose, cocoaButter);
 
         // Store events add themselves to the stocked items at their store
-        Item masterclass = new StoreEvent("Eyeshadow Masterclass", nordstan);
-        Item makeoverNordstan = new StoreEvent("Makeover", nordstan);
-        Item makeoverBackaplan = new StoreEvent("Makeover", backaplan);
+        masterclass = new StoreEvent("Eyeshadow Masterclass", nordstan);
+        makeoverNordstan = new StoreEvent("Makeover", nordstan);
+        makeoverBackaplan = new StoreEvent("Makeover", backaplan);
 
-        cart = (Cart)session.get("CART");
+
+    }
+
+    @Test
+    public void switchStore() throws Exception {
+
+        CombinationApprovals.verifyAllCombinations(this::doSwitchStore,
+                new String[]{"HOME_DELIVERY", "PICKUP", "SHIPPING", null},
+                new String[]{"NEARBY", "NOT_NEARBY", null},
+                new Store[]{backaplan, null},
+                new Boolean[]{true, false},
+                new Boolean[]{true, false});
+
+    }
+
+    public Object doSwitchStore(String deliveryType, String deliveryAddress, Store storeToSwitchTo,
+                                boolean nullCart, boolean nullDeliveryInfo) {
+
+        DeliveryInformation deliveryInfo = new DeliveryInformation(deliveryType, nordstan, 60);
+        deliveryInfo.setDeliveryAddress(deliveryAddress);
+        if (nullDeliveryInfo) {
+            deliveryInfo = null;
+        }
+
+        Cart cart = new Cart();
         cart.addItem(cherryBloom);
         cart.addItem(blusherBrush);
         cart.addItem(masterclass);
         cart.addItem(makeoverNordstan);
+        if (nullCart) {
+            cart = null;
+        }
 
-        shopping = new OnlineShopping(session);
-    }
-
-    @Test
-    public void switchStoreChangesDeliveryInfoToDrone() {
-        deliveryInfo = new DeliveryInformation("HOME_DELIVERY", nordstan, 60);
-        deliveryInfo.setDeliveryAddress("NEARBY");
+        Session session = new NonSavingSession();
+        session.put("STORE", nordstan);
         session.put("DELIVERY_INFO", deliveryInfo);
-        // TODO: make this test work
-        // shopping.switchStore(backaplan);
-        // assertEquals("DRONE", ((DeliveryInformation)session.get("DELIVERY_INFO")).getType());
+        session.put("CART", cart);
+        OnlineShopping shopping = new OnlineShopping(session);
+
+        shopping.switchStore(storeToSwitchTo);
+        return shopping.toString();
     }
 
 

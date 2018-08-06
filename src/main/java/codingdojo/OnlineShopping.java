@@ -76,7 +76,8 @@ public class OnlineShopping {
                         deliveryInformation.setPickupLocation(storeToSwitchTo);
                     }
                 } else {
-                    if (deliveryInformation != null && deliveryInformation.getDeliveryAddress() != null) {
+                    if (deliveryInformation != null
+                            && deliveryInformation.getDeliveryAddress() != null) {
                         if (((LocationService) session.get("LOCATION_SERVICE")).isWithinDeliveryRange(storeToSwitchTo, deliveryInformation.getDeliveryAddress())) {
                             deliveryInformation.setType("HOME_DELIVERY");
                             deliveryInformation.setTotalWeight(weight);
