@@ -13,6 +13,7 @@ public class OnlineShoppingTest {
 
     private Store backaplan;
     private Store nordstan;
+    private Store kungsmassan;
 
     private Item cherryBloom;
     private Item rosePetal;
@@ -23,11 +24,13 @@ public class OnlineShoppingTest {
     private Item masterclass;
     private Item makeoverNordstan;
     private Item makeoverBackaplan;
+    private Item makeoverKungsmassan;
 
     @Before
-    public void setUpReadOnlyObjects() {
+    public void setUp() {
         nordstan = new Store("Nordstan", false);
         backaplan = new Store("Backaplan", true);
+        kungsmassan = new Store("Kungsmassan", false);
 
         cherryBloom = new Item("Cherry Bloom", "LIPSTICK", 30);
         rosePetal = new Item("Rose Petal", "LIPSTICK", 30);
@@ -38,11 +41,13 @@ public class OnlineShoppingTest {
 
         nordstan.addStockedItems(cherryBloom, rosePetal, blusherBrush, eyelashCurler, wildRose, cocoaButter);
         backaplan.addStockedItems(cherryBloom, rosePetal, eyelashCurler, wildRose, cocoaButter);
+        kungsmassan.addStockedItems(cherryBloom, rosePetal, eyelashCurler, wildRose, cocoaButter);
 
         // Store events add themselves to the stocked items at their store
         masterclass = new StoreEvent("Eyeshadow Masterclass", nordstan);
         makeoverNordstan = new StoreEvent("Makeover", nordstan);
         makeoverBackaplan = new StoreEvent("Makeover", backaplan);
+        makeoverKungsmassan = new StoreEvent("Makeover", kungsmassan);
 
 
     }
@@ -51,16 +56,20 @@ public class OnlineShoppingTest {
     public void switchStore() throws Exception {
 
         CombinationApprovals.verifyAllCombinations(this::doSwitchStore,
-                new String[]{"HOME_DELIVERY", "PICKUP", "SHIPPING", null},
+                new String[]{"HOME_DELIVERY", "PICKUP", "SHIPPING", "DRONE_DELIVERY", null},
                 new String[]{"NEARBY", "NOT_NEARBY", null},
-                new Store[]{backaplan, null},
+                new Store[]{backaplan, null, kungsmassan},
+                new Boolean[]{true, false},
                 new Boolean[]{true, false},
                 new Boolean[]{true, false});
 
     }
 
     public Object doSwitchStore(String deliveryType, String deliveryAddress, Store storeToSwitchTo,
-                                boolean nullCart, boolean nullDeliveryInfo) {
+                                boolean nullCart, boolean nullDeliveryInfo,
+                                boolean originalStoreHasDrone) {
+
+        nordstan.setDroneDelivery(originalStoreHasDrone);
 
         DeliveryInformation deliveryInfo = new DeliveryInformation(deliveryType, nordstan, 60);
         deliveryInfo.setDeliveryAddress(deliveryAddress);
