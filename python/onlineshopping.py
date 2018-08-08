@@ -42,7 +42,7 @@ class OnlineShopping:
                         "HOME_DELIVERY" == deliveryInformation.delivery_type and \
                         deliveryInformation.delivery_address is not None:
                     if not self.session.get("LOCATION_SERVICE").is_within_delivery_range(store_to_switch_to, deliveryInformation.delivery_address):
-                        deliveryInformation.setType("PICKUP")
+                        deliveryInformation.delivery_type = "PICKUP"
                         deliveryInformation.pickup_location = current_store
                     else:
                         deliveryInformation.weight = weight
@@ -52,7 +52,7 @@ class OnlineShopping:
                     if deliveryInformation is not None and \
                             deliveryInformation.delivery_address is not None:
                         if self.session.get("LOCATION_SERVICE").is_within_delivery_range(store_to_switch_to, deliveryInformation.delivery_address):
-                            deliveryInformation.setType("HOME_DELIVERY")
+                            deliveryInformation.delivery_type = "HOME_DELIVERY"
                             deliveryInformation.weight = weight
                             deliveryInformation.pickup_location = store_to_switch_to
 
