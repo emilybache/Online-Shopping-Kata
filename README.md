@@ -36,13 +36,13 @@ If the item is a _StoreEvent_ and the new store has a similar event,
 you will need to switch to a similar item configured for the new store.
 A _StoreEvent_ always has a location.
 
-There are only three types of _DeliveryInformation_: PICKUP, HOME_DELIVERY and SHIPPING. 
+There are only three types of _DeliveryInformation_: PICKUP, HOME_DELIVERY and SHIPPING.
 No others are supported (yet).
-If a _DeliveryInformation_ has type PICKUP or HOME_DELIVERY then the _pickupLocation_ 
+If a _DeliveryInformation_ has type PICKUP or HOME_DELIVERY then the _pickupLocation_
 must be a _Store_.
 
-When you are shopping online using the _OnlineShopping_ class, you may choose to 
-switch which store you are shopping at, and update it in the _Session_. 
+When you are shopping online using the _OnlineShopping_ class, you may choose to
+switch which store you are shopping at, and update it in the _Session_.
 This will impact the delivery options. If you have
 Pickup or Home Delivery then if possible you will keep that option, but
 with the new store. If the new store is too far away from your _deliveryAddress_
@@ -51,7 +51,7 @@ Otherwise, if the new store is close enough to your delivery address,
 the delivery information gets switched to home delivery.
 
 If you switch to a _null_ store, that means you will instead shop at the central warehouse
-and delivery will by by shipping.
+and delivery will be by shipping.
 
 Drone Delivery Rules
 --------------------
@@ -61,17 +61,21 @@ certain stores - delivery by drone. You are working
 on adding support for this delivery type to the _OnlineShopping_
 class, in the 'switchStore' method.
 
+If Drone delivery is selected then:
+- the weight must be under 500g,
+- the Pickup Location must be a Store,
+- the delivery address must be specified,
+- the location services must confirm that the pickup location is near to the delivery address.
+
 When switching stores, if both current and new store support
-drone delivery, then the delivery type is unchanged, just the 
-_pickupLocation_ is switched to the new store.
-If you have chosen drone delivery but the new store does not support it, change the delivery 
-type to PICKUP. If the old store does not support Drone 
-delivery, but the new one does, and the delivery information
-is HOME_DELIVERY, and the weight of the items is under 500g,
-then change the delivery information type to "DRONE".
-The central warehouse does not support drone delivery.
+Drone delivery, then if possible, keep the delivery type unchanged.
+Just update the _pickupLocation_ to the new store.
 
-If Drone delivery is selected then the Pickup Location must be a store, and 
-the delivery address must be specified, and the location services must confirm
-the pickup location is near to the delivery address.
+If you have chosen drone delivery from your current store
+but the new store does not support it, change the delivery
+type to HOME_DELIVERY, or PICKUP if that's not possible.
 
+If the current store does not support Drone
+delivery, but the one you are switching to does, change to DRONE_DELIVERY if possible.
+
+The central warehouse does not support Drone delivery.
