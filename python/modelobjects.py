@@ -8,6 +8,7 @@ class ModelObject:
 
 
 class Cart(ModelObject):
+    "While shopping online in a Store, the Cart stores the Items you intend to buy"
     def __init__(self):
         self.items = []
         self.unavailable_items = []
@@ -24,6 +25,7 @@ class Cart(ModelObject):
 
 @dataclass
 class Item(ModelObject):
+    "Items are for sale in a Store (or the central warehouse) and can be put in a Cart"
     name: str
     item_type: str
     weight: int
@@ -31,6 +33,8 @@ class Item(ModelObject):
 
 @dataclass
 class Store(ModelObject):
+    """Represents a physical Store where you can go and buy
+    products and attend events."""
     name: str
     has_drone_delivery: bool
     stocked_items: dict = field(default_factory=dict)
@@ -53,6 +57,8 @@ class Store(ModelObject):
 
 
 class StoreEvent(Item):
+    """Ticket to In-store event, eg makeover, eyeshadow masterclass
+    or beauty product launch evening reception"""
     def __init__(self, name, store):
         Item.__init__(self, name, "EVENT", 0)
         self.store = store
@@ -64,6 +70,8 @@ class StoreEvent(Item):
 
 @dataclass
 class DeliveryInformation(ModelObject):
+    """This class contains the information about how the customer would like to
+       have the contents of their shopping cart delivered to them."""
     delivery_type: str
     store: Store
     weight: int
@@ -71,6 +79,8 @@ class DeliveryInformation(ModelObject):
 
 
 class LocationServices(ModelObject):
+    """The LocationService can tell you if a delivery address is within delivery range
+       of a particular Store. This is a placeholder implementation."""
     def is_within_delivery_range(self, store, address):
         return "NEARBY" == address
 

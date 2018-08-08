@@ -3,6 +3,8 @@ from modelobjects import Cart, LocationServices
 
 
 class Session:
+    """Allows the OnlineShopping to access data classes
+    and store them in the database"""
     def __init__(self):
         self.contents = {}
         self.put("CART", Cart())

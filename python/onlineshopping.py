@@ -1,9 +1,20 @@
 
 class OnlineShopping:
+    """The online shopping company owns a chain of Stores selling makeup and
+    beauty products.
+
+    Customers using the online shopping website can choose a Store then
+    can put Items available at that store into their Cart.
+
+    If no store is selected, then items are shipped from a central warehouse.
+ """
+
     def __init__(self, session):
         self.session = session
 
     def switch_store(self, store_to_switch_to):
+        """This method is called when the user changes the store they are shopping
+        at in the online shopping website."""
         cart = self.session.get("CART")
         delivery_information = self.session.get("DELIVERY_INFO")
         if store_to_switch_to is None:

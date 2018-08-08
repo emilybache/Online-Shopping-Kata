@@ -30,6 +30,7 @@ class NonSavingSession(Session):
 
 
 def test_switch_store():
+    """This test case uses approvaltests. See the documentation at https://github.com/approvals/ApprovalTests.Python"""
     verify_all_combinations(do_switch_store,
         [["HOME_DELIVERY", "PICKUP", "SHIPPING", None],
          ["NEARBY", "NOT_NEARBY", None],
