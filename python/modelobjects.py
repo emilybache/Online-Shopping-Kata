@@ -19,12 +19,7 @@ class Cart(ModelObject):
         self.unavailable_items.append(item)
 
     def __repr__(self):
-        i = '\n'.join(repr(item) for item in self.items)
-        u = '\n'.join(repr(item) for item in self.unavailable_items)
-        return f"""Cart(
-items={i}
-unavailable={u}
-)"""
+        return f"""Cart(items={self.items}, unavailable={self.unavailable_items})"""
 
 
 @dataclass

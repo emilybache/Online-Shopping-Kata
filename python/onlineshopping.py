@@ -63,6 +63,4 @@ class OnlineShopping:
         self.session.save_all()
 
     def __repr__(self):
-        return f"""OnlineShopping(
-session={self.session}
-)"""
+        return f"""OnlineShopping(session={self.session})"""

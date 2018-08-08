@@ -23,7 +23,7 @@ makeoverBackaplan = StoreEvent("Makeover", backaplan)
 
 
 def test_onlineshopping():
-    deliveryInfo = DeliveryInformation("HOME_DELIVERY", nordstan, 60, "NEARBY")
+    delivery_info = DeliveryInformation("HOME_DELIVERY", nordstan, 60, "NEARBY")
 
     cart = Cart()
     cart.add(cherryBloom)
@@ -33,10 +33,10 @@ def test_onlineshopping():
 
     session = Session()
     session.put("STORE", nordstan)
-    session.put("DELIVERY_INFO", deliveryInfo)
+    session.put("DELIVERY_INFO", delivery_info)
     session.put("CART", cart)
     shopping = OnlineShopping(session)
 
     # TODO: make this test work
     shopping.switch_store(backaplan)
-    assert "DRONE" == session.get("DELIVERY_INFO").delivery_type()
+    assert "DRONE" == session.get("DELIVERY_INFO").delivery_type
