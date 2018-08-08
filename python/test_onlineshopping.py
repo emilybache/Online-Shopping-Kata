@@ -23,6 +23,7 @@ makeoverBackaplan = StoreEvent("Makeover", backaplan)
 
 
 def test_onlineshopping():
+    """This test uses py.test - see http://pytest.org"""
     delivery_info = DeliveryInformation("HOME_DELIVERY", nordstan, 60, "NEARBY")
 
     cart = Cart()
