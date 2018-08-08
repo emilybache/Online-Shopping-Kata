@@ -40,4 +40,7 @@ public class Item implements ModelObject {
         throw new UnsupportedOperationException("missing from this exercise - shouldn't be called from a unit test");
     }
 
+    boolean isEvent() {
+        return "EVENT".equals(getType());
+    }
 }

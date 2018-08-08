@@ -10,14 +10,15 @@ import java.util.List;
 public class Cart implements ModelObject {
     ArrayList<Item> items = new ArrayList<>();
     ArrayList<Item> unavailableItems = new ArrayList<>();
-    private long weight;
 
     public List<Item> getItems() {
         return items;
     }
+
     public void addItem(Item item) {
         this.items.add(item);
     }
+
     public void addItems(Collection<Item> items) {
         this.items.addAll(items);
     }
@@ -52,48 +53,32 @@ public class Cart implements ModelObject {
         return unavailableItems;
     }
 
-    void markEventsUnavailable() {
-        for (Item item : getItems()) {
-            if ("EVENT".equals(item.getType())) {
-                markAsUnavailable(item);
-            }
-        }
-    }
-
-    public void setWeight(long weight) {
-        this.weight = weight;
-    }
-
     public long getWeight() {
+        long weight = 0;
+        for (Item item : this.items) {
+            weight += item.getWeight();
+        }
+        for (Item item : this.unavailableItems) {
+            weight -= item.getWeight();
+        }
         return weight;
     }
 
     void doSwitchStore(Store storeToSwitchTo) {
-        if (storeToSwitchTo == null) {
-            markEventsUnavailable();
-        } else {
-            ArrayList<Item> newItems = new ArrayList<>();
-            long weight1 = 0;
-            for (Item item : getItems()) {
-                if ("EVENT".equals(item.getType())) {
-                    if (storeToSwitchTo.hasItem(item)) {
-                        markAsUnavailable(item);
-                        newItems.add(storeToSwitchTo.getItem(item.getName()));
-                    } else {
-                        markAsUnavailable(item);
-                    }
-                } else if (!storeToSwitchTo.hasItem(item)) {
+        ArrayList<Item> newItems = new ArrayList<>();
+        for (Item item : getItems()) {
+            if (item.isEvent()) {
+                markAsUnavailable(item);
+                if (storeToSwitchTo != null && storeToSwitchTo.hasItem(item)) {
+                    newItems.add(storeToSwitchTo.getItem(item.getName()));
+                }
+            } else {
+                if (storeToSwitchTo != null && !storeToSwitchTo.hasItem(item)) {
                     markAsUnavailable(item);
                 }
-                weight1 += item.getWeight();
             }
-            for (Item item : getUnavailableItems()) {
-                weight1 -= item.getWeight();
-            }
-            for (Item item : newItems) {
-                addItem(item);
-            }
-            setWeight(weight1);
         }
+        addItems(newItems);
     }
+
 }
