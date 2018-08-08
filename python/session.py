@@ -19,7 +19,5 @@ class Session:
             value.save_to_database()
 
     def __repr__(self):
-        contents = '\n'.join(f"{k}={v}" for k, v in self.contents.items())
-        return f"""Session(
-{contents}
-)"""
+        contents = ', '.join(f"{k}={v}" for k, v in self.contents.items())
+        return f"""Session({contents})"""
