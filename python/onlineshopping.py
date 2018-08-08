@@ -5,16 +5,16 @@ class OnlineShopping:
 
     def switch_store(self, store_to_switch_to):
         cart = self.session.get("CART")
-        deliveryInformation = self.session.get("DELIVERY_INFO")
+        delivery_information = self.session.get("DELIVERY_INFO")
         if store_to_switch_to is None:
             if cart is not None:
                 for item in cart.get_items():
                     if "EVENT" == item.get_type():
                         cart.mark_as_unavailable(item)
 
-            if deliveryInformation is not None:
-                deliveryInformation.set_type("SHIPPING")
-                deliveryInformation.set_pickup_location(None)
+            if delivery_information is not None:
+                delivery_information.set_type("SHIPPING")
+                delivery_information.set_pickup_location(None)
             
         else:
             if cart is not None:
@@ -37,24 +37,24 @@ class OnlineShopping:
                     weight -= item.weight
 
                 current_store = self.session.get("STORE")
-                if deliveryInformation is not None and \
-                        deliveryInformation.delivery_type is not None and \
-                        "HOME_DELIVERY" == deliveryInformation.delivery_type and \
-                        deliveryInformation.delivery_address is not None:
-                    if not self.session.get("LOCATION_SERVICE").is_within_delivery_range(store_to_switch_to, deliveryInformation.delivery_address):
-                        deliveryInformation.delivery_type = "PICKUP"
-                        deliveryInformation.pickup_location = current_store
+                if delivery_information is not None and \
+                        delivery_information.delivery_type is not None and \
+                        "HOME_DELIVERY" == delivery_information.delivery_type and \
+                        delivery_information.delivery_address is not None:
+                    if not self.session.get("LOCATION_SERVICE").is_within_delivery_range(store_to_switch_to, delivery_information.delivery_address):
+                        delivery_information.delivery_type = "PICKUP"
+                        delivery_information.pickup_location = current_store
                     else:
-                        deliveryInformation.weight = weight
-                        deliveryInformation.pickup_location = store_to_switch_to
+                        delivery_information.weight = weight
+                        delivery_information.pickup_location = store_to_switch_to
                     
                 else:
-                    if deliveryInformation is not None and \
-                            deliveryInformation.delivery_address is not None:
-                        if self.session.get("LOCATION_SERVICE").is_within_delivery_range(store_to_switch_to, deliveryInformation.delivery_address):
-                            deliveryInformation.delivery_type = "HOME_DELIVERY"
-                            deliveryInformation.weight = weight
-                            deliveryInformation.pickup_location = store_to_switch_to
+                    if delivery_information is not None and \
+                            delivery_information.delivery_address is not None:
+                        if self.session.get("LOCATION_SERVICE").is_within_delivery_range(store_to_switch_to, delivery_information.delivery_address):
+                            delivery_information.delivery_type = "HOME_DELIVERY"
+                            delivery_information.weight = weight
+                            delivery_information.pickup_location = store_to_switch_to
 
                 for item in new_items:
                     cart.add(item)
