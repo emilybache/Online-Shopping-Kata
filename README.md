@@ -19,7 +19,7 @@ You have just joined the team, and your first task is
  
 There is more information about the business rules for the
 existing features and new feature in the text below. See also the
-javadoc comments in the code.
+comments in the code.
 
 
 Business Rules
