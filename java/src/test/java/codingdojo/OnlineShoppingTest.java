@@ -79,6 +79,9 @@ public class OnlineShoppingTest {
         cart.addItem(makeoverNordstan);
         if (nullCart) {
             cart = null;
+            if (deliveryInfo != null) {
+                throw new SkipCombination();
+            }
         }
 
         Session session = new NonSavingSession();

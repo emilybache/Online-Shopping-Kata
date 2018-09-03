@@ -1,6 +1,6 @@
 [HOME_DELIVERY, NEARBY, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='HOME_DELIVERY'
 deliveryAddress='NEARBY'
@@ -23,7 +23,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [HOME_DELIVERY, NEARBY, null, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='SHIPPING'
 deliveryAddress='NEARBY'
@@ -44,7 +44,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [HOME_DELIVERY, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='PICKUP'
 deliveryAddress='NOT_NEARBY'
@@ -67,7 +67,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [HOME_DELIVERY, NOT_NEARBY, null, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='SHIPPING'
 deliveryAddress='NOT_NEARBY'
@@ -88,7 +88,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [HOME_DELIVERY, null, Store{name='Backaplan', droneDelivery=true}, true, true] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=null
 STORE=Store{name='Backaplan', droneDelivery=true}
 CART=null
@@ -96,7 +96,7 @@ CART=null
 } 
 [HOME_DELIVERY, null, Store{name='Backaplan', droneDelivery=true}, false, true] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=null
 STORE=Store{name='Backaplan', droneDelivery=true}
 CART=Cart{items=
@@ -114,7 +114,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [HOME_DELIVERY, null, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='HOME_DELIVERY'
 deliveryAddress='null'
@@ -137,7 +137,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [HOME_DELIVERY, null, null, true, true] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=null
 STORE=null
 CART=null
@@ -145,7 +145,7 @@ CART=null
 } 
 [HOME_DELIVERY, null, null, false, true] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=null
 STORE=null
 CART=Cart{items=
@@ -161,7 +161,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [HOME_DELIVERY, null, null, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='SHIPPING'
 deliveryAddress='null'
@@ -182,7 +182,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [PICKUP, NEARBY, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='HOME_DELIVERY'
 deliveryAddress='NEARBY'
@@ -205,7 +205,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [PICKUP, NEARBY, null, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='SHIPPING'
 deliveryAddress='NEARBY'
@@ -226,7 +226,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [PICKUP, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='PICKUP'
 deliveryAddress='NOT_NEARBY'
@@ -249,7 +249,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [PICKUP, NOT_NEARBY, null, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='SHIPPING'
 deliveryAddress='NOT_NEARBY'
@@ -270,7 +270,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [PICKUP, null, Store{name='Backaplan', droneDelivery=true}, true, true] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=null
 STORE=Store{name='Backaplan', droneDelivery=true}
 CART=null
@@ -278,7 +278,7 @@ CART=null
 } 
 [PICKUP, null, Store{name='Backaplan', droneDelivery=true}, false, true] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=null
 STORE=Store{name='Backaplan', droneDelivery=true}
 CART=Cart{items=
@@ -296,7 +296,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [PICKUP, null, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='PICKUP'
 deliveryAddress='null'
@@ -319,7 +319,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [PICKUP, null, null, true, true] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=null
 STORE=null
 CART=null
@@ -327,7 +327,7 @@ CART=null
 } 
 [PICKUP, null, null, false, true] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=null
 STORE=null
 CART=Cart{items=
@@ -343,7 +343,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [PICKUP, null, null, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='SHIPPING'
 deliveryAddress='null'
@@ -364,7 +364,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [SHIPPING, NEARBY, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='HOME_DELIVERY'
 deliveryAddress='NEARBY'
@@ -387,7 +387,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [SHIPPING, NEARBY, null, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='SHIPPING'
 deliveryAddress='NEARBY'
@@ -408,7 +408,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [SHIPPING, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='SHIPPING'
 deliveryAddress='NOT_NEARBY'
@@ -431,7 +431,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [SHIPPING, NOT_NEARBY, null, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='SHIPPING'
 deliveryAddress='NOT_NEARBY'
@@ -452,7 +452,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [SHIPPING, null, Store{name='Backaplan', droneDelivery=true}, true, true] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=null
 STORE=Store{name='Backaplan', droneDelivery=true}
 CART=null
@@ -460,7 +460,7 @@ CART=null
 } 
 [SHIPPING, null, Store{name='Backaplan', droneDelivery=true}, false, true] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=null
 STORE=Store{name='Backaplan', droneDelivery=true}
 CART=Cart{items=
@@ -478,7 +478,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [SHIPPING, null, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='SHIPPING'
 deliveryAddress='null'
@@ -501,7 +501,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [SHIPPING, null, null, true, true] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=null
 STORE=null
 CART=null
@@ -509,7 +509,7 @@ CART=null
 } 
 [SHIPPING, null, null, false, true] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=null
 STORE=null
 CART=Cart{items=
@@ -525,7 +525,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [SHIPPING, null, null, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='SHIPPING'
 deliveryAddress='null'
@@ -546,7 +546,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [null, NEARBY, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='HOME_DELIVERY'
 deliveryAddress='NEARBY'
@@ -569,7 +569,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [null, NEARBY, null, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='SHIPPING'
 deliveryAddress='NEARBY'
@@ -590,7 +590,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [null, NOT_NEARBY, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='null'
 deliveryAddress='NOT_NEARBY'
@@ -613,7 +613,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [null, NOT_NEARBY, null, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='SHIPPING'
 deliveryAddress='NOT_NEARBY'
@@ -634,7 +634,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [null, null, Store{name='Backaplan', droneDelivery=true}, true, true] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=null
 STORE=Store{name='Backaplan', droneDelivery=true}
 CART=null
@@ -642,7 +642,7 @@ CART=null
 } 
 [null, null, Store{name='Backaplan', droneDelivery=true}, false, true] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=null
 STORE=Store{name='Backaplan', droneDelivery=true}
 CART=Cart{items=
@@ -660,7 +660,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [null, null, Store{name='Backaplan', droneDelivery=true}, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='null'
 deliveryAddress='null'
@@ -683,7 +683,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [null, null, null, true, true] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=null
 STORE=null
 CART=null
@@ -691,7 +691,7 @@ CART=null
 } 
 [null, null, null, false, true] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=null
 STORE=null
 CART=Cart{items=
@@ -707,7 +707,7 @@ StoreEvent{name='Makeover', location=Store{name='Nordstan', droneDelivery=false}
 } 
 [null, null, null, false, false] => OnlineShopping{
 session=Session{
-LOCATION_SERVICE=LocationService
+LOCATION_SERVICE=null
 DELIVERY_INFO=DeliveryInformation{
 type='SHIPPING'
 deliveryAddress='null'
