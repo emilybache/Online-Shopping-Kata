@@ -1,11 +1,9 @@
 package codingdojo;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
-import static junit.framework.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OnlineShoppingTest {
 
@@ -22,7 +20,7 @@ public class OnlineShoppingTest {
     private Item makeoverNordstan;
     private Item makeoverBackaplan;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         nordstan = new Store("Nordstan", false);
         backaplan = new Store("Backaplan", true);
