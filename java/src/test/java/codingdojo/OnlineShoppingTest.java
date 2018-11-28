@@ -2,12 +2,8 @@ package codingdojo;
 
 import org.approvaltests.combinations.CombinationApprovals;
 import org.approvaltests.combinations.SkipCombination;
-import org.junit.Before;
-import org.junit.Test;
-
-import java.util.List;
-import org.approvaltests.Approvals;
-import org.lambda.functions.Function3;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class OnlineShoppingTest {
 
@@ -24,7 +20,7 @@ public class OnlineShoppingTest {
     private Item makeoverNordstan;
     private Item makeoverBackaplan;
 
-    @Before
+    @BeforeEach
     public void setUpReadOnlyObjects() {
         nordstan = new Store("Nordstan", false);
         backaplan = new Store("Backaplan", true);
