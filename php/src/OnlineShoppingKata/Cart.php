@@ -6,7 +6,7 @@
  * Time: 16.25
  */
 
-namespace OnlineShoppingKata;
+namespace App\OnlineShoppingKata;
 
 /**
  * Class Cart
@@ -41,7 +41,7 @@ class Cart implements ModelObject
         $this->unavailableItems[] = $item;
     }
 
-    public function toString()
+    public function __toString()
     {
         return "Cart{" .
             "items=" . $this->displayItems($this->items) .
@@ -54,7 +54,7 @@ class Cart implements ModelObject
         $itemDisplay = "\n";
         foreach ($items as $item) {
             /** @var $item Item */
-            $itemDisplay .= $item->toString() . "\n";
+            $itemDisplay .= $item . "\n";
         }
 
         return $itemDisplay;

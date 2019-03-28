@@ -6,12 +6,12 @@
  * Time: 16.24
  */
 
-namespace OnlineShoppingKata;
+namespace App\OnlineShoppingKata;
 
 
 interface ModelObject
 {
-    public function toString();
+    public function __toString();
 
     public function saveToDatabase();
 }

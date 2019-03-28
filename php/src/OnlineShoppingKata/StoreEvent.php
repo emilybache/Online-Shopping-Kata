@@ -6,7 +6,7 @@
  * Time: 17.16
  */
 
-namespace OnlineShoppingKata;
+namespace App\OnlineShoppingKata;
 
 /**
  * Class StoreEvent
@@ -34,10 +34,10 @@ class StoreEvent extends Item
         $this->location->addStoreEvent($this);
     }
 
-    public function toString() {
+    public function __toString() {
         return "StoreEvent{" .
             "name='" . $this->name . '\'' .
-            ", location=" . $this->location->toString() .
+            ", location=" . $this->location .
             '}';
     }
 }

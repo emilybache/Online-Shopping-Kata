@@ -6,7 +6,7 @@
  * Time: 17.23
  */
 
-namespace OnlineShoppingKata;
+namespace App\OnlineShoppingKata;
 
 
 class DeliveryInformation implements ModelObject
@@ -74,11 +74,11 @@ class DeliveryInformation implements ModelObject
         $this->weight = $weight;
     }
 
-    public function toString() {
+    public function __toString() {
         return "DeliveryInformation{" . "\n" .
             "type='" . $this->type . '\'' . "\n" .
             "deliveryAddress='" . $this->deliveryAddress . '\'' . "\n" .
-            "pickupLocation=" . $this->pickupLocation->toString() . "\n" .
+            "pickupLocation=" . $this->pickupLocation . "\n" .
             "weight=" . $this->weight . "\n" .
             '}';
     }

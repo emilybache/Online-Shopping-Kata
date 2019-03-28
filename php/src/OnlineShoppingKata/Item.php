@@ -6,7 +6,7 @@
  * Time: 16.28
  */
 
-namespace OnlineShoppingKata;
+namespace App\OnlineShoppingKata;
 
 /**
  * Class Item
@@ -62,7 +62,7 @@ class Item
         return $this->weight;
     }
 
-    public function toString()
+    public function __toString()
     {
         return "Item{" .
             "name='" . $this->name . '\'' .

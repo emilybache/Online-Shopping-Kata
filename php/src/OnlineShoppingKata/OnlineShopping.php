@@ -6,7 +6,7 @@
  * Time: 16.45
  */
 
-namespace OnlineShoppingKata;
+namespace App\OnlineShoppingKata;
 
 /**
  * Class OnlineShopping
@@ -118,9 +118,9 @@ class OnlineShopping
         $this->session->saveAll();
     }
 
-    public function toString()
+    public function __toString()
     {
         return "OnlineShopping{\n"
-            . "session=" . $this->session->toString() . "\n}";
+            . "session=" . $this->session . "\n}";
     }
 }

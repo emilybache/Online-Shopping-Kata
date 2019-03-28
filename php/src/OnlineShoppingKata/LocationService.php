@@ -6,7 +6,7 @@
  * Time: 17.39
  */
 
-namespace OnlineShoppingKata;
+namespace App\OnlineShoppingKata;
 
 /**
  * Class LocationService
@@ -22,7 +22,7 @@ class LocationService
         return "NEARBY" === $deliveryAddress;
     }
 
-    public function toString()
+    public function __toString()
     {
         return "LocationService";
     }

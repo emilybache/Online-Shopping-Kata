@@ -6,7 +6,7 @@
  * Time: 16.33
  */
 
-namespace OnlineShoppingKata;
+namespace App\OnlineShoppingKata;
 
 
 class UnsupportedOperationException extends \Exception

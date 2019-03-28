@@ -6,7 +6,7 @@
  * Time: 16.55
  */
 
-namespace OnlineShoppingKata;
+namespace App\OnlineShoppingKata;
 
 /**
  * Class Store
@@ -69,7 +69,7 @@ class Store implements ModelObject
         return $this->droneDelivery;
     }
 
-    public function toString()
+    public function __toString()
     {
         return "Store{" .
             "name='" . $this->name . "\', " .

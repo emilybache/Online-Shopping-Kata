@@ -6,7 +6,7 @@
  * Time: 16.47
  */
 
-namespace OnlineShoppingKata;
+namespace App\OnlineShoppingKata;
 
 /**
  * Class Session
@@ -41,11 +41,11 @@ class Session
         }
     }
 
-    public function toString() {
+    public function __toString() {
         $sessionContents = "\n";
         foreach ($this->session as $key => $value) {
             /** @var ModelObject $value */
-            $sessionContents .= $key . "=" . $value->toString() . "\n";
+            $sessionContents .= $key . "=" . $value . "\n";
         }
 
         return "Session{" . $sessionContents . "}";
