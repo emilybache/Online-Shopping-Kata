@@ -1,0 +1,17 @@
+{
+    "name": "emilybache/online-shopping-kata",
+    "description": "Online Shopping Refactoring Kata",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": {
+            "": [
+                "src/",
+                "tests/"
+            ]
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.1@dev"
+    }
+}
