@@ -31,6 +31,12 @@ class Item
      */
     protected $weight; // in grams
 
+    /**
+     * Item constructor.
+     * @param string $name
+     * @param string $type
+     * @param float $weight
+     */
     public function __construct($name, $type, $weight)
     {
         $this->name = $name;
@@ -62,6 +68,9 @@ class Item
         return $this->weight;
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return "Item{" .

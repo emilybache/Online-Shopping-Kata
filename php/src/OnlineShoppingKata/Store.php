@@ -28,12 +28,20 @@ class Store implements ModelObject
      */
     private $droneDelivery;
 
+    /**
+     * Store constructor.
+     * @param $name
+     * @param $droneDelivery
+     */
     public function __construct($name, $droneDelivery)
     {
         $this->name = $name;
         $this->droneDelivery = $droneDelivery;
     }
 
+    /**
+     * @param Item[] $items
+     */
     public function addStockedItems($items)
     {
         foreach ($items as $item) {
@@ -42,11 +50,17 @@ class Store implements ModelObject
         }
     }
 
+    /**
+     * @param StoreEvent $storeEvent
+     */
     public function addStoreEvent(StoreEvent $storeEvent)
     {
         $this->itemsInStock[$storeEvent->getName()] = $storeEvent;
     }
 
+    /**
+     * @param Item[] $items
+     */
     public function removeStockedItems($items)
     {
         foreach ($items as $item) {
@@ -55,20 +69,34 @@ class Store implements ModelObject
         }
     }
 
+    /**
+     * @param Item $item
+     * @return bool
+     */
     public function hasItem(Item $item)
     {
         return key_exists($item->getName(), $this->itemsInStock);
     }
 
+    /**
+     * @param $name
+     * @return Item
+     */
     public function getItem($name)
     {
         return $this->itemsInStock[$name];
     }
 
+    /**
+     * @return bool
+     */
     public function hasDroneDelivery() {
         return $this->droneDelivery;
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return "Store{" .

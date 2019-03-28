@@ -17,11 +17,20 @@ namespace App\OnlineShoppingKata;
  */
 class LocationService
 {
+    /**
+     * @param Store $store
+     * @param string $deliveryAddress
+     *
+     * @return bool
+     */
     protected function isWithinDeliveryRange(Store $store, $deliveryAddress)
     {
         return "NEARBY" === $deliveryAddress;
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return "LocationService";

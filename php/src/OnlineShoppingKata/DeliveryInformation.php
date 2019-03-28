@@ -31,6 +31,12 @@ class DeliveryInformation implements ModelObject
      */
     private $weight;
 
+    /**
+     * DeliveryInformation constructor.
+     * @param string $type
+     * @param Store $pickupLocation
+     * @param string $weight
+     */
     public function __construct($type, Store $pickupLocation, $weight)
     {
         $this->type = $type;
@@ -38,11 +44,17 @@ class DeliveryInformation implements ModelObject
         $this->weight = $weight;
     }
 
+    /**
+     * @param string $type
+     */
     public function setType($type)
     {
         $this->type = $type;
     }
 
+    /**
+     * @return string
+     */
     public function getType()
     {
         return $this->type;
@@ -64,6 +76,9 @@ class DeliveryInformation implements ModelObject
         return $this->deliveryAddress;
     }
 
+    /**
+     * @param Store $store
+     */
     public function setPickupLocation(Store $store)
     {
         $this->pickupLocation = $store;
@@ -74,6 +89,9 @@ class DeliveryInformation implements ModelObject
         $this->weight = $weight;
     }
 
+    /**
+     * @return string
+     */
     public function __toString() {
         return "DeliveryInformation{" . "\n" .
             "type='" . $this->type . '\'' . "\n" .

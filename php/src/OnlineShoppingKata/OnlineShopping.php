@@ -29,6 +29,10 @@ class OnlineShopping
      */
     private $session;
 
+    /**
+     * OnlineShopping constructor.
+     * @param Session $session
+     */
     public function __construct(Session $session)
     {
         $this->session = $session;
@@ -118,6 +122,9 @@ class OnlineShopping
         $this->session->saveAll();
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return "OnlineShopping{\n"
