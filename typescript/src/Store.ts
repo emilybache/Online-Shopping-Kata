@@ -18,7 +18,7 @@ export default class Store implements ModelObject {
     }
     addStockedItems(...items: Item[]) {
         for (let item of items) {
-          this.itemsInStock[item.getName()] = item;
+          this.itemsInStock.set(item.getName(), item);
         }
     }
 

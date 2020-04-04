@@ -18,7 +18,7 @@ import LocationService from "./LocationService";
 export default class OnlineShopping {
     session: Session;
 
-    public OnlineShopping(session: Session) {
+    constructor(session: Session) {
         this.session = session;
     }
 
@@ -52,7 +52,7 @@ export default class OnlineShopping {
                     if ("EVENT" === item.getType()) {
                         if (storeToSwitchTo.hasItem(item)) {
                             cart.markAsUnavailable(item);
-                            newItems.push(storeToSwitchTo.getItem(item.getName()));
+                            newItems.push(storeToSwitchTo.getItem(item.getName())!);
                         } else {
                             cart.markAsUnavailable(item);
                         }
@@ -70,7 +70,7 @@ export default class OnlineShopping {
                         && deliveryInformation.getType() != null
                         && "HOME_DELIVERY" === deliveryInformation.getType()
                         && deliveryInformation.getDeliveryAddress() != null) {
-                    if (!(this.session.get("LOCATION_SERVICE") as LocationService).isWithinDeliveryRange(storeToSwitchTo, deliveryInformation.getDeliveryAddress())) {
+                    if (!(this.session.get("LOCATION_SERVICE") as LocationService).isWithinDeliveryRange(storeToSwitchTo, deliveryInformation.getDeliveryAddress()!)) {
                         deliveryInformation.setType("PICKUP");
                         deliveryInformation.setPickupLocation(currentStore);
                     } else {
@@ -80,7 +80,7 @@ export default class OnlineShopping {
                 } else {
                     if (deliveryInformation != null
                             && deliveryInformation.getDeliveryAddress() != null) {
-                        if ((this.session.get("LOCATION_SERVICE") as LocationService).isWithinDeliveryRange(storeToSwitchTo, deliveryInformation.getDeliveryAddress())) {
+                        if ((this.session.get("LOCATION_SERVICE") as LocationService).isWithinDeliveryRange(storeToSwitchTo, deliveryInformation.getDeliveryAddress()!)) {
                             deliveryInformation.setType("HOME_DELIVERY");
                             deliveryInformation.setTotalWeight(weight);
                             deliveryInformation.setPickupLocation(storeToSwitchTo);

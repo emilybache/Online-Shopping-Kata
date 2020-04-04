@@ -7,7 +7,7 @@ import Store from "./Store";
  * or beauty product launch evening reception
  */
 export default class StoreEvent extends Item {
-    protected location: Store;
+    protected location!: Store;
 
     constructor(name: string, location: Store) {
         super(name, "EVENT", 0);

@@ -8,11 +8,11 @@ import { UnsupportedOperationException } from "./Errors";
  */
 export default class DeliveryInformation implements ModelObject {
     private type: string;
-    private deliveryAddress: string;
-    private pickupLocation: Store;
+    private deliveryAddress?: string;
+    private pickupLocation: Store | null;
     private weight: number;
 
-    public DeliveryInformation(type: string, pickupLocation: Store, weight: number) {
+    constructor(type: string, pickupLocation: Store, weight: number) {
         this.type = type;
         this.pickupLocation = pickupLocation;
         this.weight = weight;
@@ -34,7 +34,7 @@ export default class DeliveryInformation implements ModelObject {
         return this.deliveryAddress;
     }
 
-    setPickupLocation(store: Store) {
+    setPickupLocation(store: Store | null) {
         this.pickupLocation = store;
     }
 
