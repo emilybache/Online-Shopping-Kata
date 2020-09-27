@@ -6,7 +6,7 @@ import Session from "./Session";
 import Store from "./Store";
 import StoreEvent from "./StoreEvent";
 
-describe('OnlineShoppingTest', () => {
+describe('OnlineShopping', () => {
   let backaplan: Store;
   let nordstan: Store;
 
