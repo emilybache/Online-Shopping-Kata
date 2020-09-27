@@ -1,13 +1,13 @@
-import {ModelObject} from './ModelObject'
-import Item from './Item';
-import StoreEvent from './StoreEvent';
 import { UnsupportedOperationException } from './Errors';
+import Item from './Item';
+import { IModelObject } from './ModelObject';
+import StoreEvent from './StoreEvent';
 
 /**
  * Represents a physical Store where you can go and buy
  * products and attend events.
  */
-export default class Store implements ModelObject {
+export default class Store implements IModelObject {
     private itemsInStock: Map<string, Item> = new Map();
     private readonly name: string;
     private droneDelivery: boolean;
@@ -16,42 +16,43 @@ export default class Store implements ModelObject {
         this.name = name;
         this.droneDelivery = droneDelivery;
     }
-    addStockedItems(...items: Item[]) {
-        for (let item of items) {
-          this.itemsInStock.set(item.getName(), item);
+
+    public addStockedItems(...items: Item[]) {
+        for (const item of items) {
+            this.itemsInStock.set(item.getName(), item);
         }
     }
 
-    addStoreEvent(storeEvent: StoreEvent) {
+    public addStoreEvent(storeEvent: StoreEvent) {
         this.itemsInStock.set(storeEvent.getName(), storeEvent);
     }
 
-    removeStockedItems(...items: Item[]) {
-        for (let item of items) {
+    public removeStockedItems(...items: Item[]) {
+        for (const item of items) {
             this.itemsInStock.delete(item.getName());
         }
     }
 
-    hasItem(item: Item) {
+    public hasItem(item: Item) {
         return this.itemsInStock.has(item.getName());
     }
 
-    getItem(name: string) {
+    public getItem(name: string) {
         return this.itemsInStock.get(name);
     }
 
-    hasDroneDelivery() {
+    public hasDroneDelivery() {
         return this.droneDelivery;
     }
 
-    toString() {
+    public toString() {
         return "Store{" +
-                "name='" + this.name + "\', " +
-                "droneDelivery=" + this.droneDelivery +
-                '}';
+            "name='" + this.name + "\', " +
+            "droneDelivery=" + this.droneDelivery +
+            '}';
     }
 
-    saveToDatabase() {
+    public saveToDatabase() {
         throw new UnsupportedOperationException("missing from this exercise - shouldn't be called from a unit test");
     }
 

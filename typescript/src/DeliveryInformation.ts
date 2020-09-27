@@ -1,57 +1,57 @@
-import Store from "./Store";
-import { ModelObject } from "./ModelObject";
 import { UnsupportedOperationException } from "./Errors";
+import { IModelObject } from "./ModelObject";
+import Store from "./Store";
 
 /**
  * This class contains the information about how the customer would like to
  * have the contents of their shopping cart delivered to them.
  */
-export default class DeliveryInformation implements ModelObject {
+export default class DeliveryInformation implements IModelObject {
     private type: string;
     private deliveryAddress?: string;
-    private pickupLocation: Store | null;
+    private pickUpLocation: Store | null;
     private weight: number;
 
-    constructor(type: string, pickupLocation: Store, weight: number) {
+    constructor(type: string, pickUpLocation: Store, weight: number) {
         this.type = type;
-        this.pickupLocation = pickupLocation;
+        this.pickUpLocation = pickUpLocation;
         this.weight = weight;
     }
 
-    setType(type: string) {
+    public setType(type: string) {
         this.type = type;
     }
 
-    getType() {
+    public getType() {
         return this.type;
     }
 
-    setDeliveryAddress(deliveryAddress: string) {
+    public setDeliveryAddress(deliveryAddress: string) {
         this.deliveryAddress = deliveryAddress;
     }
 
-    getDeliveryAddress() {
+    public getDeliveryAddress() {
         return this.deliveryAddress;
     }
 
-    setPickupLocation(store: Store | null) {
-        this.pickupLocation = store;
+    public setPickUpLocation(store: Store | null) {
+        this.pickUpLocation = store;
     }
 
-    setTotalWeight(weight: number) {
+    public setTotalWeight(weight: number) {
         this.weight = weight;
     }
 
-    toString() {
+    public toString() {
         return "DeliveryInformation{" + "\n" +
-                "type='" + this.type + '\'' + "\n" +
-                "deliveryAddress='" + this.deliveryAddress + '\'' + "\n" +
-                "pickupLocation=" + this.pickupLocation + "\n" +
-                "weight=" + this.weight + "\n" +
-                '}';
+            "type='" + this.type + '\'' + "\n" +
+            "deliveryAddress='" + this.deliveryAddress + '\'' + "\n" +
+            "pickUpLocation=" + this.pickUpLocation + "\n" +
+            "weight=" + this.weight + "\n" +
+            '}';
     }
 
-    saveToDatabase() {
+    public saveToDatabase() {
         throw new UnsupportedOperationException("missing from this exercise - shouldn't be called from a unit test");
     }
 }
