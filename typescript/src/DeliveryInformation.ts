@@ -12,7 +12,7 @@ export default class DeliveryInformation implements IModelObject {
     private pickUpLocation: Store | null;
     private weight: number;
 
-    constructor(type: string, pickUpLocation: Store, weight: number) {
+    constructor(type: string, pickUpLocation: Store | null, weight: number) {
         this.type = type;
         this.pickUpLocation = pickUpLocation;
         this.weight = weight;
@@ -46,7 +46,7 @@ export default class DeliveryInformation implements IModelObject {
         return "DeliveryInformation{" + "\n" +
             "type='" + this.type + '\'' + "\n" +
             "deliveryAddress='" + this.deliveryAddress + '\'' + "\n" +
-            "pickUpLocation=" + this.pickUpLocation?.toString() + "\n" +
+            "pickUpLocation=" + (this.pickUpLocation ? this.pickUpLocation.toString() : "null") + "\n" +
             "weight=" + this.weight + "\n" +
             '}';
     }
