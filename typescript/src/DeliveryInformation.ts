@@ -46,7 +46,7 @@ export default class DeliveryInformation implements IModelObject {
         return "DeliveryInformation{" + "\n" +
             "type='" + this.type + '\'' + "\n" +
             "deliveryAddress='" + this.deliveryAddress + '\'' + "\n" +
-            "pickUpLocation=" + this.pickUpLocation + "\n" +
+            "pickUpLocation=" + this.pickUpLocation?.toString() + "\n" +
             "weight=" + this.weight + "\n" +
             '}';
     }

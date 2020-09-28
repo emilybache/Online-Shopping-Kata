@@ -35,7 +35,7 @@ export default class Session {
         for (const [key, modelObject] of this.session) {
             sessionContents += key;
             sessionContents += "=";
-            sessionContents += modelObject;
+            sessionContents += modelObject.toString();
             sessionContents += "\n";
         }
 

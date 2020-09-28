@@ -98,7 +98,7 @@ export default class OnlineShopping {
 
     public toString() {
         return "OnlineShopping{\n"
-            + "session=" + this.session + "\n}";
+            + "session=" + this.session.toString() + "\n}";
     }
 
 }

@@ -21,7 +21,7 @@ export default class StoreEvent extends Item {
     public toString() {
         return "StoreEvent{" +
             "name='" + this.name + '\'' +
-            ", location=" + this.location +
+            ", location=" + this.location.toString() +
             '}';
     }
 }

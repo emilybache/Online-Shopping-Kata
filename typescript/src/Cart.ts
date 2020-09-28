@@ -46,6 +46,6 @@ export default class Cart implements IModelObject {
             itemDisplay += item.toString();
             itemDisplay += "\n";
         }
-        return itemDisplay.toString();
+        return itemDisplay;
     }
 }
