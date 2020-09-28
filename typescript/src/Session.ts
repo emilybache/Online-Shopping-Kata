@@ -9,7 +9,7 @@ import { IModelObject } from "./ModelObject";
 export default class Session {
     private readonly session: Map<string, IModelObject> = new Map();
 
-    public Session() {
+    constructor() {
         this.session.set("CART", new Cart());
         this.session.set("LOCATION_SERVICE", new LocationService());
     }
