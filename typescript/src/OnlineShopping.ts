@@ -26,7 +26,7 @@ export default class OnlineShopping {
      * store they are shopping at in the online shopping
      * website.
      */
-    public switchStore(storeToSwitchTo: Store) {
+    public switchStore(storeToSwitchTo: Store | null) {
         const cart = this.session.get("CART") as Cart;
         const deliveryInformation = this.session.get("DELIVERY_INFO") as DeliveryInformation;
         if (storeToSwitchTo == null) {
@@ -92,7 +92,9 @@ export default class OnlineShopping {
                 }
             }
         }
-        this.session.put("STORE", storeToSwitchTo);
+        if (storeToSwitchTo) {
+            this.session.put("STORE", storeToSwitchTo);
+        }
         this.session.saveAll();
     }
 
