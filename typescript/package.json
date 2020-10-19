@@ -1,13 +1,11 @@
 {
-  "name": "typescript",
+  "name": "online-shopping-kata",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Online Shopping Refactoring Kata",
   "scripts": {
-    "test": "mocha -r ts-node/register --watch-extensions ts $(find src -name '*.spec.ts')"
+    "test": "mocha -r ts-node/register --watch-extensions ts src/*.spec.ts"
   },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/mocha": "^7.0.2",
     "hamjest": "^3.3.1",
