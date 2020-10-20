@@ -1,10 +1,9 @@
 import Item from "./Item";
 import Store from "./Store";
 
-
 /**
- * Ticket to In-store event, eg makeover, eyeshadow masterclass
- * or beauty product launch evening reception
+ * Ticket to In-store event, eg makeover, eye shadow master class
+ * or beauty product launch evening reception.
  */
 export default class StoreEvent extends Item {
     protected location!: Store;
@@ -14,15 +13,15 @@ export default class StoreEvent extends Item {
         this.setLocation(location);
     }
 
-    setLocation(locationStore: Store) {
+    public setLocation(locationStore: Store) {
         this.location = locationStore;
         this.location.addStoreEvent(this);
     }
 
-    toString() {
+    public toString() {
         return "StoreEvent{" +
-                "name='" + this.name + '\'' +
-                ", location=" + this.location +
-                '}';
+            "name='" + this.name + '\'' +
+            ", location=" + this.location.toString() +
+            '}';
     }
 }

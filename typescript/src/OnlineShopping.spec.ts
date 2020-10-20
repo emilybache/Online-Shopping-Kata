@@ -1,12 +1,12 @@
-import Store from "./Store";
-import Item from "./Item";
-import StoreEvent from "./StoreEvent";
-import DeliveryInformation from "./DeliveryInformation";
 import Cart from "./Cart";
+import DeliveryInformation from "./DeliveryInformation";
+import Item from "./Item";
 import OnlineShopping from "./OnlineShopping";
 import Session from "./Session";
+import Store from "./Store";
+import StoreEvent from "./StoreEvent";
 
-describe('OnlineShoppingTest', () => {
+describe('OnlineShopping', () => {
   let backaplan: Store;
   let nordstan: Store;
 
@@ -16,7 +16,7 @@ describe('OnlineShoppingTest', () => {
   let eyelashCurler: Item;
   let wildRose: Item;
   let cocoaButter: Item;
-  let masterclass: Item;
+  let masterClass: Item;
   let makeoverNordstan: Item;
   let makeoverBackaplan: Item;
 
@@ -35,11 +35,10 @@ describe('OnlineShoppingTest', () => {
     backaplan.addStockedItems(cherryBloom, rosePetal, eyelashCurler, wildRose, cocoaButter);
 
     // Store events add themselves to the stocked items at their store
-    masterclass = new StoreEvent("Eyeshadow Masterclass", nordstan);
+    masterClass = new StoreEvent("Eyeshadow Masterclass", nordstan);
     makeoverNordstan = new StoreEvent("Makeover", nordstan);
     makeoverBackaplan = new StoreEvent("Makeover", backaplan);
-  })
-
+  });
 
   it('switchStore', () => {
     const deliveryInfo = new DeliveryInformation("HOME_DELIVERY", nordstan, 60);
@@ -48,7 +47,7 @@ describe('OnlineShoppingTest', () => {
     const cart = new Cart();
     cart.addItem(cherryBloom);
     cart.addItem(blusherBrush);
-    cart.addItem(masterclass);
+    cart.addItem(masterClass);
     cart.addItem(makeoverNordstan);
 
     const session = new Session();
@@ -60,5 +59,6 @@ describe('OnlineShoppingTest', () => {
     // TODO: make this test work
     // shopping.switchStore(backaplan);
     // assertEquals("DRONE", ((DeliveryInformation)session.get("DELIVERY_INFO")).getType());
-  })
-})
+  });
+
+});

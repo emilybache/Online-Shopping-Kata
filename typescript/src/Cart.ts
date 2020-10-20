@@ -1,49 +1,51 @@
-import { ModelObject } from "./ModelObject";
-import Item from "./Item";
 import { UnsupportedOperationException } from "./Errors";
+import Item from "./Item";
+import { IModelObject } from "./ModelObject";
 
 /**
- * While shopping online in a Store, the Cart stores the Items you intend to buy
+ * While shopping online in a Store, the Cart stores the Items you intend to buy.
  */
-export default class Cart implements ModelObject {
-    items: Item[] = [];
-    unavailableItems: Item[] = [];
+export default class Cart implements IModelObject {
+    private items: Item[] = [];
+    private unavailableItems: Item[] = [];
 
-    getItems() {
+    public getItems() {
         return this.items;
     }
-    addItem(item: Item) {
+
+    public addItem(item: Item) {
         this.items.push(item);
     }
-    addItems(items: Item[]) {
+
+    public addItems(items: Item[]) {
         this.items.push(...items);
     }
 
-    markAsUnavailable(item: Item) {
+    public markAsUnavailable(item: Item) {
         this.unavailableItems.push(item);
     }
 
-    toString() {
+    public toString() {
         return "Cart{" +
-                "items=" + this.displayItems(this.items) +
-                "unavailable=" + this.displayItems(this.unavailableItems) +
-                '}';
+            "items=" + this.displayItems(this.items) +
+            "unavailable=" + this.displayItems(this.unavailableItems) +
+            '}';
+    }
+
+    public saveToDatabase() {
+        throw new UnsupportedOperationException("missing from this exercise - shouldn't be called from a unit test");
+    }
+
+    public getUnavailableItems() {
+        return this.unavailableItems;
     }
 
     private displayItems(items: Item[]) {
         let itemDisplay = "\n";
-        for (let item of items) {
+        for (const item of items) {
             itemDisplay += item.toString();
             itemDisplay += "\n";
         }
-        return itemDisplay.toString();
-    }
-
-    saveToDatabase() {
-        throw new UnsupportedOperationException("missing from this exercise - shouldn't be called from a unit test");
-    }
-
-    getUnavailableItems() {
-        return this.unavailableItems;
+        return itemDisplay;
     }
 }

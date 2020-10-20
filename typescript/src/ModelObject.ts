@@ -1,4 +1,4 @@
-export interface ModelObject {
-    toString(): String;
+export interface IModelObject {
+    toString(): string;
     saveToDatabase(): void;
 }

@@ -1,7 +1,2 @@
-target
 **/*.iml
 .idea
-**/__pycache__
-**/*.pyc
-.cache
-php/vendor
