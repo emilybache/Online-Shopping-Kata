@@ -17,7 +17,7 @@ class LocationService
      *
      * @return bool
      */
-    protected function isWithinDeliveryRange(Store $store, $deliveryAddress)
+    public function isWithinDeliveryRange(Store $store, $deliveryAddress)
     {
         return "NEARBY" === $deliveryAddress;
     }
