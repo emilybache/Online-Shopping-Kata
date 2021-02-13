@@ -42,8 +42,8 @@ class OnlineShopping
     public function switchStore(Store $storeToSwitchTo = null)
     {
         /** @var Cart $cart */
-        $cart = $this->session["CART"];
-        $deliveryInformation = $this->session["DELIVERY_INFO"];
+        $cart = $this->session->get("CART");
+        $deliveryInformation = $this->session->get("DELIVERY_INFO");
         if ($storeToSwitchTo == null) {
             if ($cart != null) {
                 foreach ($cart->getItems() as $item) {
@@ -84,12 +84,12 @@ class OnlineShopping
 
                 /** @var DeliveryInformation $deliveryInformation */
                 /** @var Store $currentStore */
-                $currentStore = $this->session["STORE"];
+                $currentStore = $this->session->get("STORE");
                 if ($deliveryInformation != null
                     && $deliveryInformation->getType() != null
                     && "HOME_DELIVERY" === $deliveryInformation->getType()
                     && $deliveryInformation->getDeliveryAddress() != null) {
-                    if (! $this->session["LOCATION_SERVICE"]->isWithinDeliveryRange($storeToSwitchTo, $deliveryInformation->getDeliveryAddress())) {
+                    if (! $this->session->get("LOCATION_SERVICE")->isWithinDeliveryRange($storeToSwitchTo, $deliveryInformation->getDeliveryAddress())) {
                         $deliveryInformation->setType("PICKUP");
                         $deliveryInformation->setPickupLocation($currentStore);
                     } else {
@@ -99,7 +99,7 @@ class OnlineShopping
                 } else {
                     if ($deliveryInformation != null
                         && $deliveryInformation->getDeliveryAddress() != null) {
-                        if ($this->session["LOCATION_SERVICE"]->isWithinDeliveryRange($storeToSwitchTo, $deliveryInformation->getDeliveryAddress())) {
+                        if ($this->session->get("LOCATION_SERVICE")->isWithinDeliveryRange($storeToSwitchTo, $deliveryInformation->getDeliveryAddress())) {
                             $deliveryInformation->setType("HOME_DELIVERY");
                             $deliveryInformation->setTotalWeight($weight);
                             $deliveryInformation->setPickupLocation($storeToSwitchTo);
@@ -112,7 +112,7 @@ class OnlineShopping
                 }
             }
         }
-        $this->session["STORE"] = $storeToSwitchTo;
+        $this->session->put("STORE", $storeToSwitchTo);
         $this->session->saveAll();
     }
 
