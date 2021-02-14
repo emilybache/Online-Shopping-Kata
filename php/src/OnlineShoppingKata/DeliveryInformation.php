@@ -71,9 +71,9 @@ class DeliveryInformation implements ModelObject
     }
 
     /**
-     * @param Store $store
+     * @param ?Store $store
      */
-    public function setPickupLocation(Store $store)
+    public function setPickupLocation(?Store $store)
     {
         $this->pickupLocation = $store;
     }
