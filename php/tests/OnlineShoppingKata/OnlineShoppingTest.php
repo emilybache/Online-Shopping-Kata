@@ -86,6 +86,6 @@ class OnlineShoppingTest extends TestCase
 
         // TODO: make this test work
         // $shopping->switchStore($this->backaplan);
-        // assertEquals("DRONE", session->get("DELIVERY_INFO").getType());
+        // self::assertEquals("DRONE", $session->get("DELIVERY_INFO")->getType());
     }
 }

@@ -32,9 +32,9 @@ class Session
 
     /**
      * @param $key
-     * @param ModelObject $value
+     * @param ?ModelObject $value
      */
-    public function put($key, ModelObject $value) {
+    public function put(string $key, ?ModelObject $value){
         $this->session[$key] = $value;
     }
 
